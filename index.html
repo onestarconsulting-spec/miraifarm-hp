@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- 🔍 SEO対策 -->
-    <title>未来ファーム | 次世代スマート農業・無農薬水耕栽培</title>
-    <meta name="description" content="株式会社未来ファームは、宮城県仙台市でAIデータ管理と完全制御型水耕栽培による無農薬サンチュ・レタスを生産・卸売するアグリテック企業です。業務用の安定出荷、サンプルのご請求はこちら。">
-    <meta name="keywords" content="未来ファーム,サンチュ,水耕栽培,無農薬,仙台,アグリテック,業務用野菜,バイヤー,求人">
+    <title>未来ファーム | 完全無農薬・水耕栽培野菜の安定供給</title>
+    <meta name="description" content="株式会社未来ファームは、宮城県仙台市で完全制御型水耕栽培による無農薬サンチュ・レタスを生産・卸売する企業です。業務用の365日安定出荷、サンプルのご請求はこちら。">
+    <meta name="keywords" content="未来ファーム,サンチュ,水耕栽培,無農薬,仙台,業務用野菜,バイヤー,求人">
 
     <!-- Tailwind CSS (デザイン制御) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,7 +25,6 @@
         .text-brand { color: #1a432b; }
         .bg-brand { background-color: #1a432b; }
 
-        /* ホバー時の控えめなリフトアップ */
         .hover-lift {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -54,15 +53,17 @@
         </div>
     </header>
 
-    <!-- ヒーローセクション（ファーストビュー） -->
+    <!-- ヒーローセクション（ファーストビュー：不自然な改行を完全防止） -->
     <section class="h-screen relative flex items-center justify-center bg-emerald-950 text-white">
         <div class="absolute inset-0 bg-gradient-to-br from-emerald-900 via-gray-900 to-black opacity-90"></div>
-        <div class="relative z-10 text-center px-4">
+        <div class="relative z-10 text-center px-6 max-w-5xl">
             <p class="text-sm md:text-base tracking-[0.4em] mb-6 font-light text-emerald-200" data-aos="fade-down" data-aos-duration="1000">
-                次世代のアグリテック・カンパニー
+                完全制御型・無農薬水耕栽培
             </p>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wider" data-aos="zoom-out" data-aos-duration="1200" data-aos-delay="200">
-                農業の<br>常識を覆す。
+            
+            <!-- inline-blockを使うことで、単語の途中での不自然な改行（「おいし」「い」など）を完全に防ぎます -->
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-wider" data-aos="zoom-out" data-aos-duration="1200" data-aos-delay="200">
+                <span class="inline-block">365日、</span><span class="inline-block">変わらない</span><br class="hidden sm:inline"><span class="inline-block">「おいしい」を。</span>
             </h1>
         </div>
     </section>
@@ -71,16 +72,16 @@
     <section id="about" class="py-32 px-6 bg-white text-center">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-5xl text-brand mb-12 tracking-widest leading-relaxed" data-aos="fade-up">
-                <span class="inline-block">テクノロジーで、</span><br class="hidden md:inline">
-                <span class="inline-block">自然の恵みを極限まで引き出す。</span>
+                <span class="inline-block">安全で、均一で、美しい。</span><br class="hidden md:inline">
+                <span class="inline-block">それが私たちの届ける野菜です。</span>
             </h2>
             <p class="text-lg md:text-xl leading-loose text-gray-600 font-light text-left md:text-center">
-                土を使わず、農薬に頼らない。<br>
-                私たちが育てているのは、ただの野菜ではありません。<br>
-                最先端のAIデータ解析と徹底した衛生管理のもとで生まれる、<br>
-                未来の「食のスタンダード」です。<br><br>
+                土を使わず、天候に左右されない環境制御。<br>
+                私たちが育てているのは、単なる作物ではありません。<br>
+                徹底した衛生管理とデータのもとで生まれる、<br>
+                食の「安心と安定」そのものです。<br><br>
                 えぐみがなく、驚くほど柔らかい。<br>
-                365日、変わらない最高品質をお約束します。
+                1年を通して、いつでも最高の品質をお届けします。
             </p>
         </div>
     </section>
@@ -102,7 +103,7 @@
                         <div class="text-brand text-7xl opacity-20 serif mb-6 -ml-4" data-aos="fade-up">01</div>
                         <h3 class="text-3xl md:text-4xl serif mb-8 text-gray-900 tracking-wide" data-aos="fade-up" data-aos-delay="100">完全無農薬・<br>クリーン栽培</h3>
                         <p class="text-gray-600 leading-loose font-light text-lg">
-                            外界から遮断されたクリーンルーム内で栽培を行うため、害虫の侵入リスクがゼロ。農薬を一切使用しないため、袋から出して洗わずにそのまま安心してお召し上がりいただけます。
+                            外界から遮断されたクリーンルーム内で栽培を行うため、害虫の侵入リスクがゼロ。農薬を一切使用しないため、洗わずにそのまま安心してお召し上がりいただけます。
                         </p>
                     </div>
                 </div>
@@ -118,7 +119,7 @@
                         <div class="text-brand text-7xl opacity-20 serif mb-6 -ml-4" data-aos="fade-up">02</div>
                         <h3 class="text-3xl md:text-4xl serif mb-8 text-gray-900 tracking-wide" data-aos="fade-up" data-aos-delay="100">土を超えた<br>「水」の力</h3>
                         <p class="text-gray-600 leading-loose font-light text-lg">
-                            独自の培養液を用いた水耕栽培技術により、土壌由来の雑菌リスクを排除。サンチュ特有のえぐみがなく、子供でも食べやすい極めて柔らかい食感を実現しました。
+                            独自の培養液を用いた水耕栽培技術により、土壌由来の雑菌リスクを排除。サンチュ特有のえぐみがなく、お子様でも食べやすい極めて柔らかい食感を実現しました。
                         </p>
                     </div>
                 </div>
@@ -127,14 +128,14 @@
                 <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
                     <div class="md:w-1/2 w-full" data-aos="fade-right">
                         <div class="w-full h-[400px] bg-emerald-900/10 rounded-sm flex items-center justify-center border border-emerald-950/10">
-                            <span class="text-gray-400 font-light tracking-widest">[ 画像エリア 03: AIデータ管理 ]</span>
+                            <span class="text-gray-400 font-light tracking-widest">[ 画像エリア 03: データ管理 ]</span>
                         </div>
                     </div>
                     <div class="md:w-1/2">
                         <div class="text-brand text-7xl opacity-20 serif mb-6 -ml-4" data-aos="fade-up">03</div>
-                        <h3 class="text-3xl md:text-4xl serif mb-8 text-gray-900 tracking-wide" data-aos="fade-up" data-aos-delay="100">AIによる<br>生育予測システム</h3>
+                        <h3 class="text-3xl md:text-4xl serif mb-8 text-gray-900 tracking-wide" data-aos="fade-up" data-aos-delay="100">データに基づく<br>計画的安定出荷</h3>
                         <p class="text-gray-600 leading-loose font-light text-lg">
-                            ハウス内の温度・水温・EC・pHを24時間監視し、蓄積されたデータをもとにAIが最適な収穫時期を予測。季節を問わず、安定した品質と供給量をバイヤー様へお約束します。
+                            施設内の温度・水温・肥料濃度を常に最適化。収穫時期を性格に予測管理することで、季節や天候の変動に左右されず、安定した価格と供給量をバイヤー様へお約束します。
                         </p>
                     </div>
                 </div>
@@ -174,7 +175,7 @@
             <div class="bg-[#f4f6f5] p-10 md:p-12 text-left max-w-3xl mx-auto border-l-4 border-brand shadow-sm">
                 <p class="text-gray-700 leading-loose mb-6">
                     <strong class="text-brand tracking-widest">【お取引先様へ】</strong><br>
-                    スーパーマーケット様、飲食店様向けの業務用ケースでの大口出荷を承っております。AI予測により長期間での安定した出荷計画が可能です。
+                    スーパーマーケット様、飲食店様向けの業務用ケースでの大口出荷を承っております。長期間での安定した出荷計画が可能です。
                 </p>
                 <a href="#contact" class="inline-block text-brand font-bold border-b border-brand pb-1 hover:opacity-60 transition tracking-widest">サンプルのご請求・ご商談はこちらから</a>
             </div>
@@ -188,8 +189,8 @@
                 <h2 class="text-sm tracking-[0.3em] font-bold mb-4 opacity-70">RECRUIT</h2>
                 <h3 class="text-3xl md:text-5xl serif tracking-widest">採用情報</h3>
                 <p class="mt-6 font-light opacity-90 max-w-2xl mx-auto leading-relaxed">
-                    テクノロジー×農業で、新しい食の未来を創る仲間を募集しています。<br>
-                    クリーンルームでの快適な作業とデータ管理中心のスマートな職場環境です。
+                    新しい食の未来を共に創る仲間を募集しています。<br>
+                    クリーンルームでの快適な作業環境です。
                 </p>
             </div>
 
@@ -197,14 +198,14 @@
                 <!-- 正社員 -->
                 <div class="bg-white/5 border border-white/20 p-8 md:p-10 rounded-sm hover-lift" data-aos="fade-up" data-aos-delay="100">
                     <div class="inline-block bg-emerald-500 text-white text-xs font-bold px-3 py-1 mb-4">正社員</div>
-                    <h4 class="text-2xl font-bold mb-4 serif">スマート農業エンジニア / 栽培管理</h4>
+                    <h4 class="text-2xl font-bold mb-4 serif">栽培管理・農場オペレーター</h4>
                     <p class="text-gray-300 text-sm leading-relaxed mb-6">
-                        AIシステムを活用した環境データの監視・分析、水耕栽培の最適化、生産計画の策定業務を担当していただきます。
+                        水耕栽培システムの日常管理、水質管理、収穫出荷の生産計画の策定業務を担当していただきます。
                     </p>
                     <dl class="space-y-3 text-sm text-gray-300 border-t border-white/10 pt-6 mb-8">
                         <div class="flex justify-between"><dt class="text-gray-400">給与</dt><dd class="font-bold text-white">月給 250,000円 〜 350,000円</dd></div>
                         <div class="flex justify-between"><dt class="text-gray-400">勤務地</dt><dd>宮城県仙台市（本社農場）</dd></div>
-                        <div class="flex justify-between"><dt class="text-gray-400">対象</dt><dd>未経験歓迎 / IT・データ分析に興味がある方</dd></div>
+                        <div class="flex justify-between"><dt class="text-gray-400">対象</dt><dd>未経験歓迎 / 農業・食に関心がある方</dd></div>
                     </dl>
                     <a href="#contact" class="block text-center border border-white py-3 font-bold hover:bg-white hover:text-brand transition duration-200 text-sm tracking-widest">この職種に応募する</a>
                 </div>
@@ -244,25 +245,23 @@
                 </div>
                 <div class="flex border-b border-gray-800 pb-4">
                     <dt class="w-32 font-bold tracking-widest text-gray-400">事業内容</dt>
-                    <dd>スマート農業による葉物野菜の生産・卸売</dd>
+                    <dd>水耕栽培による葉物野菜の生産・大口卸売</dd>
                 </div>
                 <div class="flex border-b border-gray-800 pb-4">
                     <dt class="w-32 font-bold tracking-widest text-gray-400">主要設備</dt>
-                    <dd>AI環境制御型完全人工光・水耕栽培プラント</dd>
+                    <dd>環境制御型完全人工光・水耕栽培プラント</dd>
                 </div>
             </dl>
         </div>
     </section>
 
-    <!-- 🚀 お問い合わせ (Googleフォーム連携・画面遷移なし) -->
+    <!-- お問い合わせ (Googleフォーム連携) -->
     <section id="contact" class="py-32 bg-[#fafafa]">
         <div class="max-w-3xl mx-auto px-6" data-aos="fade-up">
             <h2 class="text-sm tracking-[0.3em] text-brand font-bold mb-16 text-center">CONTACT</h2>
             
-            <!-- 画面遷移を防ぐための見えないフレーム -->
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){alert('お問い合わせを送信しました。内容を確認次第、担当者よりご連絡いたします。'); document.getElementById('gform').reset(); submitted=false;}"></iframe>
             
-            <!-- Googleフォームへデータを送る本番設定 -->
             <form id="gform" action="https://docs.google.com/forms/d/e/1FAIpQLSfTyTiygMddOqtAwH-VRSsXB8xwWhGgXQlTtiCWE5jqV9EqfQ/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="bg-white p-12 lg:p-20 shadow-[0_0_40px_rgba(0,0,0,0.03)] border border-gray-100 hover-lift">
                 
                 <div class="mb-10">
@@ -272,7 +271,6 @@
                 
                 <div class="mb-10">
                     <label class="block text-xs tracking-widest text-gray-500 mb-2">ご担当者様名 <span class="text-brand">*</span></label>
-                    <!-- requiredにより未入力エラーを出します -->
                     <input type="text" name="entry.820457162" required class="w-full border-b border-gray-300 py-3 focus:outline-none focus:border-brand transition bg-transparent text-lg">
                 </div>
                 
@@ -312,10 +310,8 @@
     <!-- アニメーション スクリプト -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Googleフォーム送信用のフラグ
         var submitted = false;
 
-        // 上品なアニメーション設定
         AOS.init({
             once: true,
             duration: 800,
