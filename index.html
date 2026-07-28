@@ -25,9 +25,9 @@
         .text-brand { color: #1a432b; }
         .bg-brand { background-color: #1a432b; }
 
-        /* 📸 トップ背景：アップロードいただいた「トップ画像.jpg」を設定 */
+        /* 📸 トップ背景：top.jpg */
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('トップ画像.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('top.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -60,7 +60,7 @@
         </div>
     </header>
 
-    <!-- ヒーローセクション（ファーストビュー） -->
+    <!-- ヒーローセクション -->
     <section class="h-screen hero-bg relative flex items-center justify-center text-white">
         <div class="relative z-10 text-center px-6 max-w-5xl">
             <p class="text-sm md:text-base tracking-[0.4em] mb-6 font-light text-emerald-200" data-aos="fade-down" data-aos-duration="1000">
@@ -96,10 +96,10 @@
             <h2 class="text-sm tracking-[0.3em] text-brand font-bold mb-24 text-center" data-aos="fade-up">OUR STRENGTH</h2>
             
             <div class="space-y-32">
-                <!-- 強み 01: クリーン栽培.jpg -->
+                <!-- 強み 01: clean.jpg -->
                 <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
                     <div class="md:w-1/2 w-full" data-aos="fade-right">
-                        <img src="クリーン栽培.jpg" class="w-full h-[400px] object-cover rounded-sm shadow-sm border border-emerald-950/10" alt="完全無農薬・クリーン栽培">
+                        <img src="clean.jpg" class="w-full h-[400px] object-cover rounded-sm shadow-sm border border-emerald-950/10" alt="完全無農薬・クリーン栽培">
                     </div>
                     <div class="md:w-1/2">
                         <div class="text-brand text-7xl opacity-20 serif mb-6 -ml-4" data-aos="fade-up">01</div>
@@ -110,10 +110,10 @@
                     </div>
                 </div>
                 
-                <!-- 強み 02: 水耕栽培.jpg -->
+                <!-- 強み 02: suiko.jpg -->
                 <div class="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
                     <div class="md:w-1/2 w-full" data-aos="fade-left">
-                        <img src="水耕栽培.jpg" class="w-full h-[400px] object-cover rounded-sm shadow-sm border border-emerald-950/10" alt="土を超えた「水」の力">
+                        <img src="suiko.jpg" class="w-full h-[400px] object-cover rounded-sm shadow-sm border border-emerald-950/10" alt="土を超えた「水」の力">
                     </div>
                     <div class="md:w-1/2">
                         <div class="text-brand text-7xl opacity-20 serif mb-6 -ml-4" data-aos="fade-up">02</div>
@@ -124,10 +124,10 @@
                     </div>
                 </div>
 
-                <!-- 強み 03: データ管理.jpg -->
+                <!-- 強み 03: data.jpg -->
                 <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
                     <div class="md:w-1/2 w-full" data-aos="fade-right">
-                        <img src="データ管理.jpg" class="w-full h-[400px] object-cover rounded-sm shadow-sm border border-emerald-950/10" alt="データに基づく計画的安定出荷">
+                        <img src="data.jpg" class="w-full h-[400px] object-cover rounded-sm shadow-sm border border-emerald-950/10" alt="データに基づく計画的安定出荷">
                     </div>
                     <div class="md:w-1/2">
                         <div class="text-brand text-7xl opacity-20 serif mb-6 -ml-4" data-aos="fade-up">03</div>
@@ -148,37 +148,37 @@
             <h3 class="text-3xl md:text-4xl serif mb-16 tracking-widest" data-aos="fade-up">主力生産品目</h3>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
-                <!-- 1. サンチュ.jpg -->
+                <!-- 1. sanchu.jpg -->
                 <div class="text-center p-4 hover-lift" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-full aspect-square bg-emerald-50 rounded-full mb-6 overflow-hidden border border-emerald-100 shadow-sm">
-                        <img src="サンチュ.jpg" class="w-full h-full object-cover" alt="サンチュ">
+                        <img src="sanchu.jpg" class="w-full h-full object-cover" alt="サンチュ">
                     </div>
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">サンチュ</h4>
                     <p class="text-xs text-gray-400 mt-1">無農薬・極上の柔らかさ</p>
                 </div>
 
-                <!-- 2. サニーレタス.jpg -->
+                <!-- 2. sunny.jpg -->
                 <div class="text-center p-4 hover-lift" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-full aspect-square bg-emerald-50 rounded-full mb-6 overflow-hidden border border-emerald-100 shadow-sm">
-                        <img src="サニーレタス.jpg" class="w-full h-full object-cover" alt="サニーレタス">
+                        <img src="sunny.jpg" class="w-full h-full object-cover" alt="サニーレタス">
                     </div>
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">サニーレタス</h4>
                     <p class="text-xs text-gray-400 mt-1">鮮やかな赤紫とシャキシャキ感</p>
                 </div>
 
-                <!-- 3. グリーンカール.jpg -->
+                <!-- 3. green.jpg -->
                 <div class="text-center p-4 hover-lift" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-full aspect-square bg-emerald-50 rounded-full mb-6 overflow-hidden border border-emerald-100 shadow-sm">
-                        <img src="グリーンカール.jpg" class="w-full h-full object-cover" alt="グリーンカール">
+                        <img src="green.jpg" class="w-full h-full object-cover" alt="グリーンカール">
                     </div>
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">グリーンカール</h4>
                     <p class="text-xs text-gray-400 mt-1">強いフリルと華やかな見た目</p>
                 </div>
 
-                <!-- 4. 三つ葉.jpg -->
+                <!-- 4. mitsuba.jpg -->
                 <div class="text-center p-4 hover-lift" data-aos="fade-up" data-aos-delay="400">
                     <div class="w-full aspect-square bg-emerald-50 rounded-full mb-6 overflow-hidden border border-emerald-100 shadow-sm">
-                        <img src="三つ葉.jpg" class="w-full h-full object-cover" alt="三つ葉">
+                        <img src="mitsuba.jpg" class="w-full h-full object-cover" alt="三つ葉">
                     </div>
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">三つ葉</h4>
                     <p class="text-xs text-gray-400 mt-1">爽やかな香りの水耕三つ葉</p>
