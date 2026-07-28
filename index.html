@@ -13,7 +13,7 @@
     <meta property="og:title" content="未来ファーム | 次世代スマート農業">
     <meta property="og:description" content="AIと水耕栽培が創る、次世代の『おいしい』。完全無農薬の新鮮なサンチュを365日安定供給。">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1530836369250-ef72a3f5c748?q=80&w=1200&auto=format&fit=crop">
 
     <!-- Tailwind CSS (デザイン制御) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,16 +21,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome アイコン -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         body { font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.05em; color: #333; }
         h1, h2, h3, .serif { font-family: 'Noto Serif JP', serif; }
         
-        /* 1. 明るい水耕栽培ハウスのメイン背景に変更 */
+        /* 1. トップ画像を「バラ園」から「本物の水耕栽培（パイプと葉物）」へ変更 */
         .hero-bg {
-            background-image: url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=2000&auto=format&fit=crop');
+            background-image: url('https://images.unsplash.com/photo-1530836369250-ef72a3f5c748?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -63,9 +61,10 @@
         </div>
     </header>
 
-    <!-- ヒーローセクション（明るい明るいハウス写真 ＋ クリーンな透過オーバーレイ） -->
+    <!-- ヒーローセクション -->
     <section class="hero-bg h-screen relative flex items-center justify-center">
-        <div class="absolute inset-0 bg-black/25"></div>
+        <!-- 文字が見えやすいように黒いフィルターを少しだけかけます -->
+        <div class="absolute inset-0 bg-black/40"></div>
         <div class="relative z-10 text-center text-white fade-in px-4">
             <p class="text-sm md:text-base tracking-[0.3em] mb-6 font-light">次世代のアグリテック・カンパニー</p>
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wider mb-8 drop-shadow-md">
@@ -74,7 +73,7 @@
         </div>
     </section>
 
-    <!-- 2. コンセプト（改行の調整：不自然に1文字だけ落ちないようインラインブロックで保護） -->
+    <!-- コンセプト -->
     <section id="about" class="py-32 px-6 bg-white text-center">
         <div class="max-w-4xl mx-auto fade-in">
             <h2 class="text-3xl md:text-5xl text-brand mb-12 tracking-widest leading-relaxed">
@@ -98,10 +97,10 @@
             <h2 class="text-sm tracking-[0.3em] text-brand font-bold mb-24 text-center">OUR STRENGTH</h2>
             
             <div class="space-y-32">
-                <!-- 強み 01 -->
+                <!-- 強み 01 (LED植物工場の画像) -->
                 <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
                     <div class="md:w-1/2">
-                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1000&auto=format&fit=crop" class="w-full h-[450px] object-cover rounded-sm shadow-sm" alt="クリーン栽培">
+                        <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=1000&auto=format&fit=crop" class="w-full h-[450px] object-cover rounded-sm shadow-sm" alt="クリーン栽培">
                     </div>
                     <div class="md:w-1/2">
                         <div class="text-brand text-7xl opacity-20 serif mb-6 -ml-4">01</div>
@@ -112,10 +111,10 @@
                     </div>
                 </div>
                 
-                <!-- 強み 02 -->
+                <!-- 強み 02 (水耕栽培のアップ画像) -->
                 <div class="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
                     <div class="md:w-1/2">
-                        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5c748?q=80&w=1000&auto=format&fit=crop" class="w-full h-[450px] object-cover rounded-sm shadow-sm" alt="水耕栽培">
+                        <img src="https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?q=80&w=1000&auto=format&fit=crop" class="w-full h-[450px] object-cover rounded-sm shadow-sm" alt="水耕栽培">
                     </div>
                     <div class="md:w-1/2">
                         <div class="text-brand text-7xl opacity-20 serif mb-6 -ml-4">02</div>
@@ -126,7 +125,7 @@
                     </div>
                 </div>
 
-                <!-- 強み 03 -->
+                <!-- 強み 03 (タブレットによるAIデータ管理の画像) -->
                 <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
                     <div class="md:w-1/2">
                         <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" class="w-full h-[450px] object-cover rounded-sm shadow-sm" alt="AI管理">
@@ -143,30 +142,30 @@
         </div>
     </section>
 
-    <!-- 3. プロダクト（写真の統一感と正しく瑞々しい野草画像への全面修正） -->
+    <!-- プロダクト -->
     <section id="products" class="py-32 bg-white">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h2 class="text-sm tracking-[0.3em] text-brand font-bold mb-20">PRODUCTS</h2>
             <h3 class="text-3xl md:text-4xl serif mb-16 tracking-widest">主力生産品目</h3>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
-                <!-- サンチュ -->
+                <!-- サンチュ (緑の葉物画像) -->
                 <div class="text-center group">
                     <div class="w-full aspect-square bg-gray-50 rounded-full mb-6 overflow-hidden shadow-inner border border-gray-100">
-                         <img src="https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="サンチュ">
+                         <img src="https://images.unsplash.com/photo-1622205313162-be1d5712a43f?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="サンチュ">
                     </div>
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">サンチュ</h4>
                     <p class="text-xs text-gray-400 mt-1">無農薬・極上の柔らかさ</p>
                 </div>
-                <!-- サニーレタス -->
+                <!-- サニーレタス (少し赤みがかった葉物画像) -->
                 <div class="text-center group">
                     <div class="w-full aspect-square bg-gray-50 rounded-full mb-6 overflow-hidden shadow-inner border border-gray-100">
-                         <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="サニーレタス">
+                         <img src="https://images.unsplash.com/photo-1508061461528-ce8a7c2957e8?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="サニーレタス">
                     </div>
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">サニーレタス</h4>
                     <p class="text-xs text-gray-400 mt-1">鮮やかな彩りとシャキシャキ感</p>
                 </div>
-                <!-- グリーンカール -->
+                <!-- グリーンカール (フリルの強いレタス画像) -->
                 <div class="text-center group">
                     <div class="w-full aspect-square bg-gray-50 rounded-full mb-6 overflow-hidden shadow-inner border border-gray-100">
                          <img src="https://images.unsplash.com/photo-1556801712-76c8eb07bbc9?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="グリーンカール">
@@ -174,10 +173,10 @@
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">グリーンカール</h4>
                     <p class="text-xs text-gray-400 mt-1">フリルが美しくボリューム感抜群</p>
                 </div>
-                <!-- 三つ葉 -->
+                <!-- 三つ葉 (ハーブ・パセリ系の葉物画像) -->
                 <div class="text-center group">
                     <div class="w-full aspect-square bg-gray-50 rounded-full mb-6 overflow-hidden shadow-inner border border-gray-100">
-                         <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="三つ葉">
+                         <img src="https://images.unsplash.com/photo-1600262153282-e5659837943c?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="三つ葉">
                     </div>
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">三つ葉</h4>
                     <p class="text-xs text-gray-400 mt-1">香りが引き立つクリーン水耕三つ葉</p>
@@ -194,7 +193,7 @@
         </div>
     </section>
 
-    <!-- 4. 採用情報（求人詳細セクションを新設） -->
+    <!-- 採用情報 -->
     <section id="recruit" class="py-32 bg-brand text-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-20">
@@ -206,7 +205,6 @@
                 </p>
             </div>
 
-            <!-- 求人カード（正社員・アルバイト） -->
             <div class="grid md:grid-cols-2 gap-8 mb-16">
                 <!-- 正社員 -->
                 <div class="bg-white/5 border border-white/20 p-8 md:p-10 rounded-sm">
