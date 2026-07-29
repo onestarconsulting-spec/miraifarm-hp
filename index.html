@@ -20,6 +20,9 @@
     <!-- FontAwesome (アイコン用) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- 💳 PayPal SDK (クライアントID設定済み) -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AUgvmzZ6E8hpZvcdlJCvQ22ZDb410_O3LfwTXoFyg5sKpNjiRLsSn-P8oUe6jWakO73n-xkHOKVK2rxp&currency=JPY"></script>
+
     <script>
         window.submitted = false;
     </script>
@@ -110,7 +113,7 @@
         </div>
     </section>
 
-    <!-- コンセプト（指定文章を完全保護） -->
+    <!-- コンセプト -->
     <section id="about" class="py-28 px-6 bg-white text-center border-b border-emerald-50">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-5xl text-emerald-900 mb-10 tracking-widest leading-relaxed font-bold" data-aos="fade-up">
@@ -128,7 +131,7 @@
         </div>
     </section>
 
-    <!-- 3つの強み（最新修正文章を100%適用） -->
+    <!-- 3つの強み -->
     <section id="strength" class="py-28 bg-[#f2f8f4]">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-20" data-aos="fade-up">
@@ -238,13 +241,13 @@
         </div>
     </section>
 
-    <!-- 🛒 オンラインショップ機能（新設） -->
+    <!-- 🛒 オンラインショップ機能 -->
     <section id="shop" class="py-28 bg-[#f0fdf4]/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <span class="text-emerald-700 text-xs font-bold tracking-[0.3em] uppercase block mb-2">Online Store</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 serif mb-4">産地直送 オンラインショップ</h2>
-                <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto">朝採れたての無農薬水耕栽培野菜を、工場からご自宅へ直接お届けいたします。安心のクレジットカード・オンライン決済対応。</p>
+                <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto">朝採れたての無農薬水耕栽培野菜を、工場からご自宅へ直接お届けいたします。安心のオンライン決済（各種クレジットカード・PayPay対応）。</p>
             </div>
 
             <!-- 商品カードグリッド -->
@@ -385,7 +388,7 @@
         </div>
     </section>
 
-    <!-- お問い合わせ (Googleフォーム連携・指定entry IDそのまま) -->
+    <!-- お問い合わせ (Googleフォーム連携) -->
     <section id="contact" class="py-28 bg-white">
         <div class="max-w-3xl mx-auto px-6" data-aos="fade-up">
             <div class="text-center mb-16">
@@ -466,7 +469,7 @@
     <!-- カート背景オーバレイ -->
     <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/40 z-40 hidden transition-opacity"></div>
 
-    <!-- 💳 決済モーダル -->
+    <!-- 💳 決済モーダル（PayPal / クレジットカード決済） -->
     <div id="checkout-modal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeCheckout()" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-xl">
@@ -476,50 +479,17 @@
             <h3 class="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
                 <i class="fa-solid fa-lock text-emerald-600"></i> ご注文・オンライン決済
             </h3>
-            <p class="text-xs text-gray-500 mb-6">安全な決済システムにてご注文を完了いたします。</p>
+            <p class="text-xs text-gray-500 mb-6">安全なオンライン決済システムにて決済を完了いたします。（クレジットカード・デビットカード・PayPal対応）</p>
 
-            <form onsubmit="handlePayment(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">お名前 <span class="text-red-500">*</span></label>
-                    <input type="text" required placeholder="未来 太郎" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm">
+            <div class="bg-emerald-50/50 p-4 rounded-2xl border border-emerald-100 text-xs text-gray-700 mb-6 space-y-2">
+                <div class="flex justify-between font-bold text-sm text-gray-900 border-b border-emerald-200/60 pb-2">
+                    <span>お支払い合計金額:</span>
+                    <span id="checkout-total-amount" class="text-emerald-700 text-base">¥0</span>
                 </div>
+            </div>
 
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">メールアドレス <span class="text-red-500">*</span></label>
-                    <input type="email" required placeholder="taro@example.com" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">お届け先ご住所 <span class="text-red-500">*</span></label>
-                    <input type="text" required placeholder="東京都千代田区1-1-1" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-2">お支払い方法選択</label>
-                    <div class="grid grid-cols-2 gap-3 text-xs font-bold">
-                        <label class="border border-emerald-500 bg-emerald-50/50 p-3 rounded-xl flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="payment-method" value="card" checked class="text-emerald-600">
-                            <span><i class="fa-solid fa-credit-card mr-1"></i> クレジットカード</span>
-                        </label>
-                        <label class="border border-gray-200 p-3 rounded-xl flex items-center gap-2 cursor-pointer hover:bg-gray-50">
-                            <input type="radio" name="payment-method" value="paypay" class="text-emerald-600">
-                            <span><i class="fa-solid fa-mobile-screen mr-1"></i> PayPay / スマホ決済</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 text-xs text-gray-600 space-y-2">
-                    <div class="flex justify-between font-bold text-sm text-gray-900 border-b pb-2">
-                        <span>お支払い合計金額:</span>
-                        <span id="checkout-total-amount" class="text-emerald-700">¥0</span>
-                    </div>
-                    <p class="text-[11px] text-gray-400">※クレジットカード情報はSSL暗号化通信により保護され安全に送信されます。</p>
-                </div>
-
-                <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl shadow-lg transition text-base">
-                    注文を確定して決済する
-                </button>
-            </form>
+            <!-- PayPal決済ボタンの描画エリア -->
+            <div id="paypal-button-container" class="min-h-[150px]"></div>
         </div>
     </div>
 
@@ -615,7 +585,7 @@
             `).join('');
         }
 
-        // 💳 レジ進むモーダル表示
+        // 💳 レジ進むモーダル表示 ＆ PayPalボタン動的生成
         function openCheckout() {
             if (cart.length === 0) {
                 showCustomModal('カートが空です', '商品を選択してからレジに進んでください。');
@@ -623,21 +593,48 @@
             }
             const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
             document.getElementById('checkout-total-amount').innerText = `¥${totalPrice.toLocaleString()}`;
+            
+            // コンテナ初期化
+            const container = document.getElementById('paypal-button-container');
+            container.innerHTML = '';
+            
+            // PayPalボタン生成
+            if (window.paypal) {
+                paypal.Buttons({
+                    style: {
+                        layout: 'vertical',
+                        color:  'gold',
+                        shape:  'rect',
+                        label:  'paypal'
+                    },
+                    createOrder: function(data, actions) {
+                        const currentTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                        return actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    currency_code: 'JPY',
+                                    value: currentTotal.toString()
+                                }
+                            }]
+                        });
+                    },
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(details) {
+                            closeCheckout();
+                            cart = [];
+                            updateCartUI();
+                            toggleCart();
+                            showCustomModal('ご注文・決済完了', `${details.payer.name.given_name || 'お客様'}、PayPalでの決済が正常に完了いたしました。ご購入いただきありがとうございます。`);
+                        });
+                    }
+                }).render('#paypal-button-container');
+            }
+
             document.getElementById('checkout-modal').classList.remove('hidden');
         }
 
         function closeCheckout() {
             document.getElementById('checkout-modal').classList.add('hidden');
-        }
-
-        // 💳 決済実行処理
-        function handlePayment(e) {
-            e.preventDefault();
-            closeCheckout();
-            cart = [];
-            updateCartUI();
-            toggleCart();
-            showCustomModal('ご注文を受け付けました', '決済処理が完了いたしました。ご登録のメールアドレスへ注文確認メールをお送りいたします。');
         }
 
         // 通知ダイアログ表示
