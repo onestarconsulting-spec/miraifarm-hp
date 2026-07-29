@@ -23,7 +23,6 @@
     <!-- 🔍 クロスドメイン・プレビュー環境用エラー保護 -->
     <script>
         window.submitted = false;
-        // プレビュー環境でのPayPal SDKクロスドメイン読み込みエラーを捕捉・保護
         window.addEventListener('error', function(e) {
             if (e && e.message && e.message.includes('Can not read window host')) {
                 e.preventDefault();
@@ -99,6 +98,7 @@
             </button>
         </div>
     </header>
+
     <!-- ヒーローセクション（背景をクリアにし、文字周りのみ可読性を確保） -->
     <section class="min-h-screen hero-bg relative flex items-center justify-center text-gray-800 pt-20">
         <div class="relative z-10 text-center px-4 max-w-5xl py-12 hero-text-container" data-aos="fade">
@@ -279,7 +279,7 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0 flex gap-2">
-                        <button onclick="addToCart('【朝採り】極上無農薬サンチュセット（5パック）', 1980, 'sanchu.jpg')" class="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-xl shadow-sm text-sm transition flex items-center justify-center gap-2">
+                        <button onclick="addToCart('【朝採り】極上無農薬サンチュセット（5パック）', 1980, 'sanchu.jpg', false)" class="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-xl shadow-sm text-sm transition flex items-center justify-center gap-2">
                             <i class="fa-solid fa-cart-plus"></i> カートに入れる
                         </button>
                     </div>
@@ -299,7 +299,7 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0 flex gap-2">
-                        <button onclick="addToCart('新鮮水耕野菜 4種バラエティ詰め合わせ', 2480, 'sunny.jpg')" class="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-xl shadow-sm text-sm transition flex items-center justify-center gap-2">
+                        <button onclick="addToCart('新鮮水耕野菜 4種バラエティ詰め合わせ', 2480, 'sunny.jpg', false)" class="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-xl shadow-sm text-sm transition flex items-center justify-center gap-2">
                             <i class="fa-solid fa-cart-plus"></i> カートに入れる
                         </button>
                     </div>
@@ -319,7 +319,7 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0 flex gap-2">
-                        <button onclick="addToCart('【業務用】サンチュ大容量ケース（20パック）', 6800, 'suiko.jpg')" class="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-xl shadow-sm text-sm transition flex items-center justify-center gap-2">
+                        <button onclick="addToCart('【業務用】サンチュ大容量ケース（20パック）', 6800, 'suiko.jpg', true)" class="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-xl shadow-sm text-sm transition flex items-center justify-center gap-2">
                             <i class="fa-solid fa-cart-plus"></i> カートに入れる
                         </button>
                     </div>
@@ -470,7 +470,7 @@
         <!-- カート合計と決済進むボタン -->
         <div class="p-6 border-t border-gray-100 bg-gray-50">
             <div class="flex justify-between items-center mb-4 text-lg font-bold text-gray-900">
-                <span>合計金額（税込）:</span>
+                <span>商品小計（税込）:</span>
                 <span id="cart-total" class="text-emerald-700 text-xl">¥0</span>
             </div>
             <button onclick="openCheckout()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-base">
@@ -492,7 +492,7 @@
             <h3 class="text-2xl font-bold text-gray-900 mb-1 flex items-center gap-2">
                 <i class="fa-solid fa-truck-fast text-emerald-600"></i> ご注文・お届け先情報の入力
             </h3>
-            <p class="text-xs text-gray-500 mb-6">郵便番号を入力すると住所が自動入力されます。</p>
+            <p class="text-xs text-gray-500 mb-6">郵便番号を入力すると住所とクール便送料（南東北発 80サイズ）が自動入力されます。</p>
 
             <form id="shipping-form" onsubmit="proceedToPayment(event)" class="space-y-4">
                 <!-- お届け先（配送先）情報 -->
@@ -524,7 +524,7 @@
                         </div>
                         <div class="col-span-2">
                             <label class="block text-xs font-bold text-gray-700 mb-1">都道府県 <span class="text-red-500">*</span></label>
-                            <input type="text" id="ship-pref" required placeholder="宮城県" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:outline-none focus:border-emerald-600">
+                            <input type="text" id="ship-pref" required placeholder="宮城県" onchange="calculateOrderTotals()" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:outline-none focus:border-emerald-600">
                         </div>
                     </div>
 
@@ -565,8 +565,17 @@
                     </div>
                 </div>
 
+                <!-- 金額内訳（商品小計＋ヤマトクール便送料＋合計） -->
                 <div class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-100 text-xs text-gray-700 mb-4 space-y-2">
-                    <div class="flex justify-between font-bold text-sm text-gray-900 border-b border-emerald-200/60 pb-2">
+                    <div class="flex justify-between text-gray-600">
+                        <span>商品小計（税込）:</span>
+                        <span id="checkout-subtotal-amount" class="font-bold">¥0</span>
+                    </div>
+                    <div class="flex justify-between text-gray-600">
+                        <span>送料（ヤマトクール宅急便 80サイズ）:</span>
+                        <span id="checkout-shipping-amount" class="font-bold text-emerald-700">郵便番号未入力</span>
+                    </div>
+                    <div class="flex justify-between font-bold text-base text-gray-900 border-t border-emerald-200/60 pt-2 mt-1">
                         <span>お支払い合計金額（税込）:</span>
                         <span id="checkout-total-amount" class="text-emerald-700 text-lg">¥0</span>
                     </div>
@@ -610,6 +619,22 @@
     <script>
         var cart = [];
 
+        /* 🚚 ヤマトクール宅急便（南東北発・80サイズ＋クール代330円含む）都道府県別送料マッピング */
+        const coolShippingRates = {
+            '宮城県': 1420, // 同一県内 (1,090 + 330)
+            '青森県': 1560, '岩手県': 1560, '秋田県': 1560, '山形県': 1560, '福島県': 1560, // 北東北・南東北
+            '東京都': 1560, '神奈川県': 1560, '埼玉県': 1560, '千葉県': 1560, '茨城県': 1560, '栃木県': 1560, '群馬県': 1560, '山梨県': 1560, // 関東
+            '新潟県': 1560, '長野県': 1560, // 信越
+            '富山県': 1680, '石川県': 1680, '福井県': 1680, // 北陸
+            '静岡県': 1680, '愛知県': 1680, '三重県': 1680, '岐阜県': 1680, // 中部
+            '大阪府': 1810, '京都府': 1810, '滋賀県': 1810, '奈良県': 1810, '和歌山県': 1810, '兵庫県': 1810, // 関西
+            '北海道': 1940, // 北海道
+            '鳥取県': 2070, '島根県': 2070, '岡山県': 2070, '広島県': 2070, '山口県': 2070, // 中国
+            '徳島県': 2070, '香川県': 2070, '愛媛県': 2070, '高知県': 2070, // 四国
+            '福岡県': 2380, '佐賀県': 2380, '長崎県': 2380, '熊本県': 2380, '大分県': 2380, '宮崎県': 2380, '鹿児島県': 2380, // 九州
+            '沖縄県': 2710  // 沖縄
+        };
+
         AOS.init({
             once: true,
             duration: 800,
@@ -643,10 +668,49 @@
                             const res = data.results[0];
                             document.getElementById('ship-pref').value = res.address1;
                             document.getElementById('ship-city').value = res.address2 + res.address3;
+                            calculateOrderTotals(); // 送料再計算
                         }
                     })
                     .catch(err => console.error('郵便番号検索エラー:', err));
             }
+        }
+
+        // 🚚 送料＆合計金額計算ロジック
+        function calculateOrderTotals() {
+            const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const pref = document.getElementById('ship-pref').value.trim();
+            
+            // カート内に有料送料商品が含まれているか確認（全て送料無料商品なら0円）
+            const needsShipping = cart.some(item => !item.isFreeShipping);
+            
+            let shippingFee = 0;
+            const shippingDisp = document.getElementById('checkout-shipping-amount');
+
+            if (!needsShipping) {
+                shippingFee = 0;
+                shippingDisp.innerText = '無料（送料無料商品）';
+            } else if (pref && coolShippingRates[pref]) {
+                shippingFee = coolShippingRates[pref];
+                shippingDisp.innerText = `¥${shippingFee.toLocaleString()}`;
+            } else if (pref) {
+                // 部分一致などの対応
+                const matchedKey = Object.keys(coolShippingRates).find(k => pref.includes(k) || k.includes(pref));
+                if (matchedKey) {
+                    shippingFee = coolShippingRates[matchedKey];
+                    shippingDisp.innerText = `¥${shippingFee.toLocaleString()}`;
+                } else {
+                    shippingDisp.innerText = '都道府県を確認中...';
+                }
+            } else {
+                shippingDisp.innerText = '郵便番号未入力';
+            }
+
+            const grandTotal = subtotal + shippingFee;
+
+            document.getElementById('checkout-subtotal-amount').innerText = `¥${subtotal.toLocaleString()}`;
+            document.getElementById('checkout-total-amount').innerText = `¥${grandTotal.toLocaleString()}`;
+
+            return { subtotal, shippingFee, grandTotal };
         }
 
         // 📝 請求先エリアの切り替え
@@ -669,12 +733,12 @@
         }
 
         // 🛒 カートへ商品追加
-        function addToCart(name, price, image) {
+        function addToCart(name, price, image, isFreeShipping = false) {
             const existing = cart.find(item => item.name === name);
             if (existing) {
                 existing.quantity += 1;
             } else {
-                cart.push({ name, price, image, quantity: 1 });
+                cart.push({ name, price, image, quantity: 1, isFreeShipping });
             }
             updateCartUI();
             toggleCart();
@@ -703,7 +767,7 @@
             totalText.innerText = `¥${totalPrice.toLocaleString()}`;
 
             if (cart.length === 0) {
-                container.innerHTML = '<p id="empty-cart-msg" class="text-center text-gray-400 py-12 text-sm">カートに商品が入っていません</p>';
+                container.innerHTML = '<p id="empty-cart-msg" class="text-center text-gray-400 py-12 text-sm">カートに商品が入っていないか空です</p>';
                 return;
             }
 
@@ -729,8 +793,7 @@
                 showCustomModal('カートが空です', '商品を選択してからレジに進んでください。');
                 return;
             }
-            const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-            document.getElementById('checkout-total-amount').innerText = `¥${totalPrice.toLocaleString()}`;
+            calculateOrderTotals();
             
             // フォームの表示状態初期化
             document.getElementById('shipping-form').classList.remove('hidden');
@@ -746,6 +809,8 @@
         async function proceedToPayment(e) {
             e.preventDefault();
             
+            const totals = calculateOrderTotals();
+
             document.getElementById('shipping-form').classList.add('hidden');
             document.getElementById('payment-step-area').classList.remove('hidden');
 
@@ -765,12 +830,12 @@
                             label:  'paypal'
                         },
                         createOrder: function(data, actions) {
-                            const currentTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                            const currentTotals = calculateOrderTotals();
                             return actions.order.create({
                                 purchase_units: [{
                                     amount: {
                                         currency_code: 'JPY',
-                                        value: currentTotal.toString()
+                                        value: currentTotals.grandTotal.toString()
                                     }
                                 }]
                             });
