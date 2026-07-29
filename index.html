@@ -20,16 +20,18 @@
     <!-- FontAwesome (アイコン用) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <script>
+        window.submitted = false;
+    </script>
+
     <style>
         body { font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.04em; color: #2d3748; overflow-x: hidden; }
         h1, h2, h3, .serif { font-family: 'Noto Serif JP', serif; }
         
         .text-brand { color: #15803d; }
         .bg-brand { background-color: #15803d; }
-        .bg-brand-light { background-color: #f0fdf4; }
-        .border-brand { border-color: #15803d; }
 
-        /* 📸 明るく開放的なヒーロー背景 */
+        /* 明るく開放的なヒーロー背景 (top.jpg) */
         .hero-bg {
             background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.75), rgba(240, 253, 244, 0.85)), url('top.jpg');
             background-size: cover;
@@ -37,7 +39,7 @@
         }
 
         .hover-lift {
-            transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .hover-lift:hover {
             transform: translateY(-4px);
@@ -59,7 +61,7 @@
     <header class="fixed w-full z-40 bg-white/95 backdrop-blur-md border-b border-emerald-100/60 py-4 transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <a href="#top" class="text-xl md:text-2xl font-bold tracking-widest serif text-emerald-800 hover:opacity-80 transition duration-200 flex items-center gap-2">
-                <i class="fa-solid font-normal fa-leaf text-emerald-600 text-lg"></i>
+                <i class="fa-solid fa-leaf text-emerald-600 text-lg"></i>
                 MIRAI FARM
             </a>
             
@@ -82,15 +84,15 @@
         </div>
     </header>
 
-    <!-- ヒーローセクション（明るく爽やかなファーストビュー） -->
+    <!-- ヒーローセクション（明るく開放的なデザイン） -->
     <section class="min-h-screen hero-bg relative flex items-center justify-center text-gray-800 pt-20">
         <div class="relative z-10 text-center px-6 max-w-5xl py-20">
             <div class="inline-block bg-emerald-100/80 backdrop-blur-sm text-emerald-900 border border-emerald-200 text-xs md:text-sm px-4 py-1.5 rounded-full mb-6 font-semibold tracking-widest shadow-sm" data-aos="fade-down" data-aos-duration="1000">
                 🌱 完全制御型・無農薬水耕栽培ファーム
             </div>
             
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight md:leading-tight tracking-wider text-emerald-950 mb-8" data-aos="zoom-out" data-aos-duration="1200" data-aos-delay="200">
-                <span class="inline-block">365日、</span><span class="inline-block">みずみずしい</span><br class="hidden sm:inline"><span class="inline-block">「おいしい」を</span><span class="inline-block">ご家庭とお店へ。</span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-wider text-emerald-950 mb-8" data-aos="zoom-out" data-aos-duration="1200" data-aos-delay="200">
+                <span class="inline-block">365日、</span><span class="inline-block">変わらない</span><br class="hidden sm:inline"><span class="inline-block">「おいしい」を。</span>
             </h1>
 
             <p class="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed" data-aos="fade-up" data-aos-delay="300">
@@ -102,13 +104,13 @@
                     <i class="fa-solid fa-basket-shopping"></i> オンラインで注文する
                 </a>
                 <a href="#contact" class="bg-white hover:bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold px-8 py-4 rounded-full shadow-sm transition duration-300 tracking-wider flex items-center justify-center gap-2">
-                    <i class="fa-envelope far"></i> サンプルご請求・ご相談
+                    <i class="fa-regular fa-envelope"></i> サンプルご請求・ご相談
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- コンセプト -->
+    <!-- コンセプト（指定文章を完全保護） -->
     <section id="about" class="py-28 px-6 bg-white text-center border-b border-emerald-50">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-5xl text-emerald-900 mb-10 tracking-widest leading-relaxed font-bold" data-aos="fade-up">
@@ -126,7 +128,7 @@
         </div>
     </section>
 
-    <!-- 3つの強み -->
+    <!-- 3つの強み（最新修正文章を100%適用） -->
     <section id="strength" class="py-28 bg-[#f2f8f4]">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-20" data-aos="fade-up">
@@ -138,13 +140,13 @@
                 <!-- 強み 01: clean.jpg -->
                 <div class="flex flex-col md:flex-row items-center gap-10 lg:gap-20 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-emerald-100/80">
                     <div class="md:w-1/2 w-full overflow-hidden rounded-2xl shadow-md" data-aos="fade-right">
-                        <img src="clean.jpg" class="w-full h-[350px] object-cover hover:scale-105 transition duration-500" alt="完全無農薬・クリーン栽培" onerror="this.src='https://placehold.co/800x600/e6f4ea/15803d?text=Clean+Cultivation'">
+                        <img src="clean.jpg" class="w-full h-[350px] object-cover hover:scale-105 transition duration-500" alt="完全無農薬・クリーン栽培">
                     </div>
                     <div class="md:w-1/2">
                         <div class="text-emerald-600 font-bold text-5xl serif mb-4">01</div>
                         <h3 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900 tracking-wide">完全無農薬・クリーン栽培</h3>
                         <p class="text-gray-600 leading-loose font-light text-base md:text-lg">
-                            外界から遮断されたクリーンルーム内で栽培を行うため、害虫の侵入リスクがゼロ。農薬を一切使用しないため、袋から出して洗わずにそのまま安心してお召し上がりいただけます。
+                            外界から遮断されたクリーンルーム内で栽培を行うため、害虫の侵入リスクがほとんどありません。農薬を一切使用しないため、洗わずにそのまま安心してお召し上がりいただけます。
                         </p>
                     </div>
                 </div>
@@ -152,13 +154,13 @@
                 <!-- 強み 02: suiko.jpg -->
                 <div class="flex flex-col md:flex-row-reverse items-center gap-10 lg:gap-20 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-emerald-100/80">
                     <div class="md:w-1/2 w-full overflow-hidden rounded-2xl shadow-md" data-aos="fade-left">
-                        <img src="suiko.jpg" class="w-full h-[350px] object-cover hover:scale-105 transition duration-500" alt="土を超えた「水」の力" onerror="this.src='https://placehold.co/800x600/e6f4ea/15803d?text=Hydroponics'">
+                        <img src="suiko.jpg" class="w-full h-[350px] object-cover hover:scale-105 transition duration-500" alt="土を超えた「水」の力">
                     </div>
                     <div class="md:w-1/2">
                         <div class="text-emerald-600 font-bold text-5xl serif mb-4">02</div>
                         <h3 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900 tracking-wide">土を超えた「水」の力</h3>
                         <p class="text-gray-600 leading-loose font-light text-base md:text-lg">
-                            独自の培養液を用いた水耕栽培技術により、土壌由来の雑菌リスクを排除。サンチュ特有のえぐみがなく、お子様でも食べやすい極めて柔らかい食感を実現しました。
+                            独自の培養液を用いた水耕栽培技術により、土壌由来の雑菌リスクを低減。サンチュ特有のえぐみがなく、お子様でも食べやすい極めて柔らかい食感を実現しました。
                         </p>
                     </div>
                 </div>
@@ -166,13 +168,13 @@
                 <!-- 強み 03: data.jpg -->
                 <div class="flex flex-col md:flex-row items-center gap-10 lg:gap-20 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-emerald-100/80">
                     <div class="md:w-1/2 w-full overflow-hidden rounded-2xl shadow-md" data-aos="fade-right">
-                        <img src="data.jpg" class="w-full h-[350px] object-cover hover:scale-105 transition duration-500" alt="データに基づく計画的安定出荷" onerror="this.src='https://placehold.co/800x600/e6f4ea/15803d?text=Data+Management'">
+                        <img src="data.jpg" class="w-full h-[350px] object-cover hover:scale-105 transition duration-500" alt="データに基づく計画的安定出荷">
                     </div>
                     <div class="md:w-1/2">
                         <div class="text-emerald-600 font-bold text-5xl serif mb-4">03</div>
                         <h3 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900 tracking-wide">データに基づく計画的安定出荷</h3>
                         <p class="text-gray-600 leading-loose font-light text-base md:text-lg">
-                            施設内の温度・水温・肥料濃度を常に最適化。収穫時期を正確に予測管理することで、季節や天候の変動に左右されず、安定した価格と供給量をバイヤー様へお約束します。
+                            施設内の温度・水温・肥料濃度を常に最適化。収穫時期を正確に予測管理することで、季節や天候の変動に左右されない通年安定供給を実現します。
                         </p>
                     </div>
                 </div>
@@ -180,7 +182,7 @@
         </div>
     </section>
 
-    <!-- プロダクト紹介 -->
+    <!-- プロダクト -->
     <section id="products" class="py-28 bg-white border-b border-emerald-50">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <span class="text-emerald-700 text-xs font-bold tracking-[0.3em] uppercase block mb-2" data-aos="fade-up">Products</span>
@@ -190,7 +192,7 @@
                 <!-- 1. sanchu.jpg -->
                 <div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100 text-center hover-lift" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-full aspect-square bg-white rounded-full mb-6 overflow-hidden border border-emerald-200 shadow-inner">
-                        <img src="sanchu.jpg" class="w-full h-full object-cover" alt="サンチュ" onerror="this.src='https://placehold.co/400x400/e6f4ea/15803d?text=Sanchu'">
+                        <img src="sanchu.jpg" class="w-full h-full object-cover" alt="サンチュ">
                     </div>
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">サンチュ</h4>
                     <p class="text-xs text-emerald-700 mt-1 font-medium">無農薬・極上の柔らかさ</p>
@@ -199,7 +201,7 @@
                 <!-- 2. sunny.jpg -->
                 <div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100 text-center hover-lift" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-full aspect-square bg-white rounded-full mb-6 overflow-hidden border border-emerald-200 shadow-inner">
-                        <img src="sunny.jpg" class="w-full h-full object-cover" alt="サニーレタス" onerror="this.src='https://placehold.co/400x400/e6f4ea/15803d?text=Sunny+Lettuce'">
+                        <img src="sunny.jpg" class="w-full h-full object-cover" alt="サニーレタス">
                     </div>
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">サニーレタス</h4>
                     <p class="text-xs text-emerald-700 mt-1 font-medium">鮮やかな赤紫とシャキシャキ感</p>
@@ -208,7 +210,7 @@
                 <!-- 3. green.jpg -->
                 <div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100 text-center hover-lift" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-full aspect-square bg-white rounded-full mb-6 overflow-hidden border border-emerald-200 shadow-inner">
-                        <img src="green.jpg" class="w-full h-full object-cover" alt="グリーンカール" onerror="this.src='https://placehold.co/400x400/e6f4ea/15803d?text=Green+Curl'">
+                        <img src="green.jpg" class="w-full h-full object-cover" alt="グリーンカール">
                     </div>
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">グリーンカール</h4>
                     <p class="text-xs text-emerald-700 mt-1 font-medium">強いフリルと華やかな見た目</p>
@@ -217,7 +219,7 @@
                 <!-- 4. mitsuba.jpg -->
                 <div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100 text-center hover-lift" data-aos="fade-up" data-aos-delay="400">
                     <div class="w-full aspect-square bg-white rounded-full mb-6 overflow-hidden border border-emerald-200 shadow-inner">
-                        <img src="mitsuba.jpg" class="w-full h-full object-cover" alt="三つ葉" onerror="this.src='https://placehold.co/400x400/e6f4ea/15803d?text=Mitsuba'">
+                        <img src="mitsuba.jpg" class="w-full h-full object-cover" alt="三つ葉">
                     </div>
                     <h4 class="font-bold tracking-widest text-lg text-gray-800">三つ葉</h4>
                     <p class="text-xs text-emerald-700 mt-1 font-medium">爽やかな香りの水耕三つ葉</p>
@@ -236,7 +238,7 @@
         </div>
     </section>
 
-    <!-- 🛒 オンラインショップ・決済機能セクション -->
+    <!-- 🛒 オンラインショップ機能（新設） -->
     <section id="shop" class="py-28 bg-[#f0fdf4]/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -251,7 +253,7 @@
                 <div class="bg-white rounded-3xl overflow-hidden border border-emerald-100 shadow-sm hover-lift flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
                     <div>
                         <div class="relative h-64 overflow-hidden bg-gray-50">
-                            <img src="sanchu.jpg" class="w-full h-full object-cover" alt="朝採り無農薬サンチュ パック" onerror="this.src='https://placehold.co/600x400/e6f4ea/15803d?text=Sanchu+Set'">
+                            <img src="sanchu.jpg" class="w-full h-full object-cover" alt="朝採り無農薬サンチュ パック">
                             <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">人気 No.1</span>
                         </div>
                         <div class="p-6">
@@ -271,8 +273,383 @@
                 <div class="bg-white rounded-3xl overflow-hidden border border-emerald-100 shadow-sm hover-lift flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
                     <div>
                         <div class="relative h-64 overflow-hidden bg-gray-50">
-                            <img src="sunny.jpg" class="w-full h-full object-cover" alt="水耕栽培葉物野菜アソート" onerror="this.src='https://placehold.co/600x400/e6f4ea/15803d?text=Assortment+Set'">
+                            <img src="sunny.jpg" class="w-full h-full object-cover" alt="水耕栽培葉物野菜アソート">
                             <span class="absolute top-4 left-4 bg-emerald-800 text-white text-xs font-bold px-3 py-1 rounded-full shadow">おすすめ</span>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">新鮮水耕野菜 4種バラエティ詰め合わせ</h3>
+                            <p class="text-gray-500 text-xs leading-relaxed mb-4">サンチュ、サニーレタス、グリーンカール、三つ葉の4種を一度に楽しめるお得な旬のパックセット。</p>
+                            <div class="text-emerald-700 font-bold text-2xl mb-1">¥2,480 <span class="text-xs text-gray-400 font-normal">（税込・送料別）</span></div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex gap-2">
+                        <button onclick="addToCart('新鮮水耕野菜 4種バラエティ詰め合わせ', 2480, 'sunny.jpg')" class="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-xl shadow-sm text-sm transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i> カートに入れる
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 商品 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-emerald-100 shadow-sm hover-lift flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="relative h-64 overflow-hidden bg-gray-50">
+                            <img src="suiko.jpg" class="w-full h-full object-cover" alt="業務用サンチュ大容量">
+                            <span class="absolute top-4 left-4 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">業務用・大容量</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">飲食店・事業者向け サンチュ大容量ケース（20パック）</h3>
+                            <p class="text-gray-500 text-xs leading-relaxed mb-4">店舗でのご使用や大口利用に。クリーンルーム出荷のため廃棄ロスが少なく高保存性。</p>
+                            <div class="text-emerald-700 font-bold text-2xl mb-1">¥6,800 <span class="text-xs text-gray-400 font-normal">（税込・送料無料）</span></div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex gap-2">
+                        <button onclick="addToCart('【業務用】サンチュ大容量ケース（20パック）', 6800, 'suiko.jpg')" class="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-xl shadow-sm text-sm transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i> カートに入れる
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 採用情報 -->
+    <section id="recruit" class="py-28 bg-emerald-900 text-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-emerald-300 text-xs font-bold tracking-[0.3em] uppercase block mb-2">Recruit</span>
+                <h2 class="text-3xl md:text-5xl serif tracking-widest">採用情報</h2>
+                <p class="mt-4 font-light opacity-90 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
+                    新しい食の未来を共に創る仲間を募集しています。<br>
+                    全天候対応・冷暖房完備のクリーンルームで快適に働けます。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- 正社員 -->
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-8 md:p-10 rounded-2xl hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="inline-block bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded mb-4">正社員</div>
+                    <h4 class="text-2xl font-bold mb-4 serif">栽培管理・農場オペレーター</h4>
+                    <p class="text-emerald-100 text-sm leading-relaxed mb-6">
+                        水耕栽培システムの日常管理、水質管理、収穫出荷の生産計画の策定業務を担当していただきます。
+                    </p>
+                    <dl class="space-y-3 text-sm text-emerald-100 border-t border-white/10 pt-6 mb-8">
+                        <div class="flex justify-between"><dt class="text-emerald-300">給与</dt><dd class="font-bold text-white">月給 250,000円 〜 350,000円</dd></div>
+                        <div class="flex justify-between"><dt class="text-emerald-300">勤務地</dt><dd>宮城県仙台市（本社農場）</dd></div>
+                        <div class="flex justify-between"><dt class="text-emerald-300">対象</dt><dd>未経験歓迎 / 農業・食に関心がある方</dd></div>
+                    </dl>
+                    <a href="#contact" class="block text-center border border-white py-3.5 rounded-xl font-bold hover:bg-white hover:text-emerald-900 transition duration-200 text-sm tracking-widest">この職種に応募する</a>
+                </div>
+
+                <!-- パート・アルバイト -->
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-8 md:p-10 rounded-2xl hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="inline-block bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded mb-4">パート・アルバイト</div>
+                    <h4 class="text-2xl font-bold mb-4 serif">収穫・パッキングスタッフ</h4>
+                    <p class="text-emerald-100 text-sm leading-relaxed mb-6">
+                        清潔な室内（クリーンルーム）でのサンチュやレタスの収穫、検品、ケースへの袋詰め作業です。重労働はありません。
+                    </p>
+                    <dl class="space-y-3 text-sm text-emerald-100 border-t border-white/10 pt-6 mb-8">
+                        <div class="flex justify-between"><dt class="text-emerald-300">時給</dt><dd class="font-bold text-white">時給 1,100円 〜 1,300円</dd></div>
+                        <div class="flex justify-between"><dt class="text-emerald-300">時間</dt><dd>週2日・1日3h〜相談OK</dd></div>
+                        <div class="flex justify-between"><dt class="text-emerald-300">環境</dt><dd>冷暖房完備・快適な作業環境</dd></div>
+                    </dl>
+                    <a href="#contact" class="block text-center border border-white py-3.5 rounded-xl font-bold hover:bg-white hover:text-emerald-900 transition duration-200 text-sm tracking-widest">この職種に応募する</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 会社概要 -->
+    <section id="company" class="py-28 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
+            <span class="text-emerald-400 text-xs font-bold tracking-[0.3em] uppercase block mb-2 text-center">Company</span>
+            <h3 class="text-3xl md:text-4xl serif mb-16 text-center tracking-widest font-bold">会社概要</h3>
+            
+            <dl class="space-y-6 text-base font-light opacity-90 max-w-2xl mx-auto bg-gray-800/50 p-8 md:p-12 rounded-2xl border border-gray-700">
+                <div class="flex flex-col sm:flex-row border-b border-gray-700 pb-4">
+                    <dt class="w-32 font-bold tracking-widest text-emerald-400 mb-1 sm:mb-0">社名</dt>
+                    <dd class="flex-1">株式会社 未来ファーム</dd>
+                </div>
+                <div class="flex flex-col sm:flex-row border-b border-gray-700 pb-4">
+                    <dt class="w-32 font-bold tracking-widest text-emerald-400 mb-1 sm:mb-0">所在地</dt>
+                    <dd class="flex-1">〒980-0000<br>宮城県仙台市〇〇区〇〇 1-2-3</dd>
+                </div>
+                <div class="flex flex-col sm:flex-row border-b border-gray-700 pb-4">
+                    <dt class="w-32 font-bold tracking-widest text-emerald-400 mb-1 sm:mb-0">事業内容</dt>
+                    <dd class="flex-1">水耕栽培による葉物野菜の生産・卸売・直売</dd>
+                </div>
+                <div class="flex flex-col sm:flex-row border-b border-gray-700 pb-4">
+                    <dt class="w-32 font-bold tracking-widest text-emerald-400 mb-1 sm:mb-0">主要設備</dt>
+                    <dd class="flex-1">環境制御型完全人工光・水耕栽培プラント</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+    <!-- お問い合わせ (Googleフォーム連携・指定entry IDそのまま) -->
+    <section id="contact" class="py-28 bg-white">
+        <div class="max-w-3xl mx-auto px-6" data-aos="fade-up">
+            <div class="text-center mb-16">
+                <span class="text-emerald-700 text-xs font-bold tracking-[0.3em] uppercase block mb-2">Contact</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 serif">お問い合わせ・サンプルご請求</h2>
+            </div>
+            
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted){showCustomModal('お問い合わせを受け付けました', '内容を確認次第、担当者よりご連絡いたします。'); document.getElementById('gform').reset(); window.submitted=false;}"></iframe>
+            
+            <form id="gform" action="https://docs.google.com/forms/d/e/1FAIpQLSfTyTiygMddOqtAwH-VRSsXB8xwWhGgXQlTtiCWE5jqV9EqfQ/formResponse" method="POST" target="hidden_iframe" onsubmit="window.submitted=true;" class="bg-emerald-50/40 p-8 md:p-14 rounded-3xl shadow-sm border border-emerald-100">
+                
+                <div class="mb-8">
+                    <label class="block text-xs font-bold tracking-widest text-gray-700 mb-2">御社名（法人の場合）</label>
+                    <input type="text" name="entry.127947018" placeholder="株式会社〇〇" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-600 transition bg-white text-base">
+                </div>
+                
+                <div class="mb-8">
+                    <label class="block text-xs font-bold tracking-widest text-gray-700 mb-2">ご担当者様名 <span class="text-red-500">*</span></label>
+                    <input type="text" name="entry.820457162" required placeholder="山田 太郎" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-600 transition bg-white text-base">
+                </div>
+                
+                <div class="mb-8">
+                    <label class="block text-xs font-bold tracking-widest text-gray-700 mb-2">メールアドレス <span class="text-red-500">*</span></label>
+                    <input type="email" name="entry.689711148" required placeholder="example@mirai-farm.co.jp" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-600 transition bg-white text-base">
+                </div>
+                
+                <div class="mb-8">
+                    <label class="block text-xs font-bold tracking-widest text-gray-700 mb-2">お問い合わせ種別</label>
+                    <select name="entry.1394498644" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-600 transition bg-white text-gray-700 text-base">
+                        <option value="新規のお取引・サンプルのご請求 (バイヤー様)">新規のお取引・サンプルのご請求 (バイヤー様)</option>
+                        <option value="求人・採用へのご応募">求人・採用へのご応募</option>
+                        <option value="その他のお問い合わせ">その他のお問い合わせ</option>
+                    </select>
+                </div>
+                
+                <div class="mb-12">
+                    <label class="block text-xs font-bold tracking-widest text-gray-700 mb-2">お問い合わせ内容 <span class="text-red-500">*</span></label>
+                    <textarea rows="4" name="entry.2062307738" required placeholder="ご質問やサンプルの配送先ご住所などをご入力ください" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-600 transition bg-white resize-none text-base"></textarea>
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" class="bg-emerald-700 hover:bg-emerald-800 text-white px-16 py-4 rounded-full tracking-[0.2em] font-bold transition duration-200 shadow-md w-full sm:w-auto">
+                        送信する
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 🛒 スライドイン カートドロワー UI -->
+    <div id="cart-drawer" class="cart-drawer closed fixed inset-y-0 right-0 max-w-full w-full sm:w-96 bg-white shadow-2xl z-50 flex flex-col justify-between border-l border-emerald-100">
+        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-emerald-50/50">
+            <h3 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping text-emerald-700"></i> ショッピングカート
+            </h3>
+            <button onclick="toggleCart()" class="text-gray-400 hover:text-gray-600 p-2 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- カートの中身一覧 -->
+        <div id="cart-items" class="p-6 overflow-y-auto flex-1 space-y-4">
+            <p id="empty-cart-msg" class="text-center text-gray-400 py-12 text-sm">カートに商品が入っていません</p>
+        </div>
+
+        <!-- カート合計と決済進むボタン -->
+        <div class="p-6 border-t border-gray-100 bg-gray-50">
+            <div class="flex justify-between items-center mb-4 text-lg font-bold text-gray-900">
+                <span>合計金額（税込）:</span>
+                <span id="cart-total" class="text-emerald-700 text-xl">¥0</span>
+            </div>
+            <button onclick="openCheckout()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-base">
+                <i class="fa-solid fa-credit-card"></i> レジに進む（購入・決済）
+            </button>
+        </div>
+    </div>
+
+    <!-- カート背景オーバレイ -->
+    <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/40 z-40 hidden transition-opacity"></div>
+
+    <!-- 💳 決済モーダル -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCheckout()" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-lock text-emerald-600"></i> ご注文・オンライン決済
+            </h3>
+            <p class="text-xs text-gray-500 mb-6">安全な決済システムにてご注文を完了いたします。</p>
+
+            <form onsubmit="handlePayment(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">お名前 <span class="text-red-500">*</span></label>
+                    <input type="text" required placeholder="未来 太郎" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">メールアドレス <span class="text-red-500">*</span></label>
+                    <input type="email" required placeholder="taro@example.com" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">お届け先ご住所 <span class="text-red-500">*</span></label>
+                    <input type="text" required placeholder="東京都千代田区1-1-1" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-2">お支払い方法選択</label>
+                    <div class="grid grid-cols-2 gap-3 text-xs font-bold">
+                        <label class="border border-emerald-500 bg-emerald-50/50 p-3 rounded-xl flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="payment-method" value="card" checked class="text-emerald-600">
+                            <span><i class="fa-solid fa-credit-card mr-1"></i> クレジットカード</span>
+                        </label>
+                        <label class="border border-gray-200 p-3 rounded-xl flex items-center gap-2 cursor-pointer hover:bg-gray-50">
+                            <input type="radio" name="payment-method" value="paypay" class="text-emerald-600">
+                            <span><i class="fa-solid fa-mobile-screen mr-1"></i> PayPay / スマホ決済</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 text-xs text-gray-600 space-y-2">
+                    <div class="flex justify-between font-bold text-sm text-gray-900 border-b pb-2">
+                        <span>お支払い合計金額:</span>
+                        <span id="checkout-total-amount" class="text-emerald-700">¥0</span>
+                    </div>
+                    <p class="text-[11px] text-gray-400">※クレジットカード情報はSSL暗号化通信により保護され安全に送信されます。</p>
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl shadow-lg transition text-base">
+                    注文を確定して決済する
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- カスタム通知モーダル -->
+    <div id="custom-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-center shadow-xl">
+            <div id="modal-icon" class="text-4xl text-emerald-600 mb-3"><i class="fa-solid fa-circle-check"></i></div>
+            <h4 id="modal-title" class="text-lg font-bold text-gray-900 mb-2">通知</h4>
+            <p id="modal-body" class="text-sm text-gray-600 mb-6"></p>
+            <button onclick="closeCustomModal()" class="bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-full text-sm hover:bg-emerald-800 transition">
+                閉じる
+            </button>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="bg-gray-950 text-center py-10 text-gray-500 text-xs tracking-[0.2em] border-t border-gray-800">
+        &copy; 2026 MIRAI FARM INC. ALL RIGHTS RESERVED.
+    </footer>
+
+    <!-- アニメーション & カート処理スクリプト -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        var cart = [];
+
+        AOS.init({
+            once: true,
+            duration: 800,
+            offset: 50,
+            easing: 'ease-out-cubic'
+        });
+
+        // 🛒 カートトグル
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            drawer.classList.toggle('closed');
+            overlay.classList.toggle('hidden');
+        }
+
+        // 🛒 カートへ商品追加
+        function addToCart(name, price, image) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ name, price, image, quantity: 1 });
+            }
+            updateCartUI();
+            toggleCart();
+            showCustomModal('カートに追加しました', `${name} をカートに追加しました。`);
+        }
+
+        // 🛒 カート数量変更
+        function updateQuantity(index, delta) {
+            cart[index].quantity += delta;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        // 🛒 カートUI更新
+        function updateCartUI() {
+            const container = document.getElementById('cart-items');
+            const countBadge = document.getElementById('cart-count');
+            const totalText = document.getElementById('cart-total');
+
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+            countBadge.innerText = totalCount;
+            totalText.innerText = `¥${totalPrice.toLocaleString()}`;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p id="empty-cart-msg" class="text-center text-gray-400 py-12 text-sm">カートに商品が入っていません</p>';
+                return;
+            }
+
+            container.innerHTML = cart.map((item, index) => `
+                <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-xl border border-gray-100">
+                    <img src="${item.image}" class="w-14 h-14 object-cover rounded-lg">
+                    <div class="flex-1">
+                        <h4 class="text-xs font-bold text-gray-800 line-clamp-1">${item.name}</h4>
+                        <div class="text-emerald-700 font-bold text-sm mt-0.5">¥${item.price.toLocaleString()}</div>
+                    </div>
+                    <div class="flex items-center border border-gray-200 bg-white rounded-lg">
+                        <button onclick="updateQuantity(${index}, -1)" class="px-2 py-1 text-xs text-gray-600 hover:bg-gray-100">-</button>
+                        <span class="px-2 text-xs font-bold">${item.quantity}</span>
+                        <button onclick="updateQuantity(${index}, 1)" class="px-2 py-1 text-xs text-gray-600 hover:bg-gray-100">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 💳 レジ進むモーダル表示
+        function openCheckout() {
+            if (cart.length === 0) {
+                showCustomModal('カートが空です', '商品を選択してからレジに進んでください。');
+                return;
+            }
+            const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            document.getElementById('checkout-total-amount').innerText = `¥${totalPrice.toLocaleString()}`;
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        // 💳 決済実行処理
+        function handlePayment(e) {
+            e.preventDefault();
+            closeCheckout();
+            cart = [];
+            updateCartUI();
+            toggleCart();
+            showCustomModal('ご注文を受け付けました', '決済処理が完了いたしました。ご登録のメールアドレスへ注文確認メールをお送りいたします。');
+        }
+
+        // 通知ダイアログ表示
+        function showCustomModal(title, body) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-body').innerText = body;
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeCustomModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
