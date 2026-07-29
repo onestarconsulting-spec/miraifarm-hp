@@ -96,9 +96,10 @@
                 🌱 完全制御型・無農薬水耕栽培ファーム
             </div>
             
-            <!-- 行間をゆったりと（leading-[2.0] md:leading-[2.2]）広げました -->
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-[2.0] md:leading-[2.2] text-emerald-950 mb-8" data-aos="zoom-out" data-aos-duration="1200" data-aos-delay="200">
-                <span class="inline-block">365日<span class="inline-block -mr-[0.5em]">、</span>変わらない</span><br class="hidden sm:inline"><span class="inline-block"><span class="inline-block -ml-[0.2em] -mr-[0.1em]">「</span>おいしい<span class="inline-block -mr-[0.5em]">」</span>を<span class="inline-block -mr-[0.3em]">。</span></span>
+            <!-- 見出し行間：詰まりを解消し、自然で綺麗な間隔（mb-2 md:mb-3）に微調整 -->
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-snug md:leading-normal text-emerald-950 mb-8" data-aos="zoom-out" data-aos-duration="1200" data-aos-delay="200">
+                <span class="block mb-2 md:mb-3">365日<span class="inline-block -mr-[0.5em]">、</span>変わらない</span>
+                <span class="block"><span class="inline-block -ml-[0.2em] -mr-[0.1em]">「</span>おいしい<span class="inline-block -mr-[0.5em]">」</span>を<span class="inline-block -mr-[0.3em]">。</span></span>
             </h1>
 
             <p class="text-gray-700 text-base md:text-lg max-w-3xl mx-auto mb-10 font-normal leading-relaxed" data-aos="fade-up" data-aos-delay="300">
@@ -119,10 +120,10 @@
     <!-- コンセプト -->
     <section id="about" class="py-28 px-6 bg-white text-center border-b border-emerald-50">
         <div class="max-w-4xl mx-auto">
-            <!-- 行間をゆったりと（leading-[2.0] md:leading-[2.2]）広げました -->
-            <h2 class="text-3xl md:text-5xl text-emerald-900 mb-10 tracking-widest leading-[2.0] md:leading-[2.2] font-bold" data-aos="fade-up">
-                <span class="inline-block">安全で、均一で、美しい<span class="inline-block -mr-[0.3em]">。</span></span><br class="hidden md:inline">
-                <span class="inline-block">それが私たちの届ける野菜です<span class="inline-block -mr-[0.3em]">。</span></span>
+            <!-- コンセプト見出し行間：詰まりを解消し適度な間隔（mb-2 md:mb-3）に微調整 -->
+            <h2 class="text-3xl md:text-5xl text-emerald-900 mb-10 tracking-widest leading-snug md:leading-normal font-bold" data-aos="fade-up">
+                <span class="block mb-2 md:mb-3">安全で、均一で、美しい<span class="inline-block -mr-[0.3em]">。</span></span>
+                <span class="block">それが私たちの届ける野菜です<span class="inline-block -mr-[0.3em]">。</span></span>
             </h2>
             <p class="text-base md:text-xl leading-relaxed md:leading-loose text-gray-600 font-light text-left md:text-center">
                 土を使わず、天候に左右されない環境制御。<br>
@@ -688,7 +689,6 @@
                     .then(data => {
                         if (data.results && data.results[0]) {
                             const res = data.results[0];
-                            const prefName = res.address1.replace(/(都|府|県)$/, ''); // 都道府県名の正規化
                             document.getElementById('cust-pref').value = res.address1;
                             document.getElementById('cust-addr1').value = res.address2 + res.address3;
                             
@@ -755,7 +755,6 @@
             calculateGrandTotal();
             document.getElementById('checkout-modal').classList.remove('hidden');
 
-            // PayPal SDKを動的ロード（プレビュー環境対策付き）
             loadPayPalSdkAndRender();
         }
 
