@@ -40,11 +40,18 @@
         .text-brand { color: #15803d; }
         .bg-brand { background-color: #15803d; }
 
-        /* 明るく開放的なヒーロー背景 (top.jpg) */
+        /* クリアな背景画像 (top.jpg) */
         .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.75), rgba(240, 253, 244, 0.85)), url('top.jpg');
+            background-image: url('top.jpg');
             background-size: cover;
             background-position: center;
+        }
+
+        /* 文字がかかる中央エリアのみホワイトグラデーションで可読性を確保 */
+        .hero-text-container {
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 55%, rgba(255, 255, 255, 0) 85%);
+            border-radius: 2.5rem;
+            padding: 3rem 1.5rem;
         }
 
         .hover-lift {
@@ -92,11 +99,10 @@
             </button>
         </div>
     </header>
-
-    <!-- ヒーローセクション（明るく開放的なデザイン） -->
+    <!-- ヒーローセクション（背景をクリアにし、文字周りのみ可読性を確保） -->
     <section class="min-h-screen hero-bg relative flex items-center justify-center text-gray-800 pt-20">
-        <div class="relative z-10 text-center px-6 max-w-5xl py-20">
-            <div class="inline-block bg-emerald-100/80 backdrop-blur-sm text-emerald-900 border border-emerald-200 text-xs md:text-sm px-4 py-1.5 rounded-full mb-6 font-semibold tracking-widest shadow-sm" data-aos="fade-down" data-aos-duration="1000">
+        <div class="relative z-10 text-center px-4 max-w-5xl py-12 hero-text-container" data-aos="fade">
+            <div class="inline-block bg-emerald-100/90 backdrop-blur-sm text-emerald-900 border border-emerald-200 text-xs md:text-sm px-4 py-1.5 rounded-full mb-6 font-semibold tracking-widest shadow-sm" data-aos="fade-down" data-aos-duration="1000">
                 🌱 完全制御型・無農薬水耕栽培ファーム
             </div>
             
@@ -104,8 +110,9 @@
                 <span class="inline-block">365日、</span><span class="inline-block">変わらない</span><br class="hidden sm:inline"><span class="inline-block">「おいしい」を。</span>
             </h1>
 
-            <p class="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed" data-aos="fade-up" data-aos-delay="300">
-                仙台の自社プラントで育つ、洗わずにそのまま食べられる極上サンチュ・レタス。<br class="hidden md:inline">業務用の大口注文からオンライン直売まで全国へ発送いたします。
+            <p class="text-gray-700 text-base md:text-lg max-w-3xl mx-auto mb-10 font-normal leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+                <span class="inline-block">仙台の自社プラントで育つ、洗わずにそのまま食べられる極上サンチュ・レタス。</span><br class="hidden md:inline">
+                <span class="inline-block">業務用の大口注文からオンライン直売まで全国へ発送いたします。</span>
             </p>
 
             <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
