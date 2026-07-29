@@ -58,6 +58,18 @@
         .cart-drawer.closed {
             transform: translateX(100%);
         }
+
+        /* モバイルメニューのアニメーション */
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-[#fafdfb]" id="top">
@@ -70,7 +82,7 @@
                 MIRAI FARM
             </a>
             
-            <!-- 日本語メニュー -->
+            <!-- PC用 日本語ナビゲーション -->
             <nav class="hidden lg:flex space-x-7 text-sm tracking-wide font-medium text-gray-700 items-center">
                 <a href="#about" class="hover:text-emerald-700 transition duration-200">未来ファームについて</a>
                 <a href="#products" class="hover:text-emerald-700 transition duration-200">生産品目</a>
@@ -80,12 +92,32 @@
                 <a href="#shop" class="hover:text-amber-700 transition duration-200 font-bold text-amber-600"><i class="fa-solid fa-basket-shopping mr-1"></i>オンラインショップ</a>
             </nav>
 
-            <!-- カートボタン -->
-            <button onclick="toggleCart()" class="relative bg-emerald-50 text-emerald-800 border border-emerald-200 px-4 py-2 rounded-full font-medium hover:bg-emerald-100 transition flex items-center gap-2 text-sm shadow-sm">
-                <i class="fa-solid fa-cart-shopping text-emerald-600"></i>
-                <span class="hidden sm:inline font-bold">カート</span>
-                <span id="cart-count" class="bg-emerald-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
-            </button>
+            <div class="flex items-center gap-3">
+                <!-- カートボタン -->
+                <button onclick="toggleCart()" class="relative bg-emerald-50 text-emerald-800 border border-emerald-200 px-4 py-2 rounded-full font-medium hover:bg-emerald-100 transition flex items-center gap-2 text-sm shadow-sm">
+                    <i class="fa-solid fa-cart-shopping text-emerald-600"></i>
+                    <span class="hidden sm:inline font-bold">カート</span>
+                    <span id="cart-count" class="bg-emerald-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </button>
+
+                <!-- 🍔 スマホ用 ハンバーガーボタン (lg未満で表示) -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden text-emerald-800 p-2 text-2xl focus:outline-none" aria-label="メニューを開く">
+                    <i id="menu-icon-bars" class="fa-solid fa-bars"></i>
+                    <i id="menu-icon-close" class="fa-solid fa-xmark hidden"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 📱 スマホ用 ドロップダウンナビゲーション -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden bg-white/98 border-b border-emerald-100 shadow-md">
+            <nav class="px-6 py-4 flex flex-col space-y-3 text-sm font-medium text-gray-700">
+                <a href="#about" onclick="closeMobileMenu()" class="py-2 border-b border-gray-100 hover:text-emerald-700 transition"><i class="fa-solid fa-angle-right mr-2 text-emerald-500"></i>未来ファームについて</a>
+                <a href="#products" onclick="closeMobileMenu()" class="py-2 border-b border-gray-100 hover:text-emerald-700 transition"><i class="fa-solid fa-angle-right mr-2 text-emerald-500"></i>生産品目</a>
+                <a href="#recruit" onclick="closeMobileMenu()" class="py-2 border-b border-gray-100 hover:text-emerald-700 transition"><i class="fa-solid fa-angle-right mr-2 text-emerald-500"></i>採用情報</a>
+                <a href="#company" onclick="closeMobileMenu()" class="py-2 border-b border-gray-100 hover:text-emerald-700 transition"><i class="fa-solid fa-angle-right mr-2 text-emerald-500"></i>会社概要</a>
+                <a href="#contact" onclick="closeMobileMenu()" class="py-2 border-b border-gray-100 hover:text-emerald-700 transition"><i class="fa-solid fa-angle-right mr-2 text-emerald-500"></i>お問い合わせ</a>
+                <a href="#shop" onclick="closeMobileMenu()" class="py-2 font-bold text-amber-600 hover:text-amber-700 transition flex items-center"><i class="fa-solid fa-basket-shopping mr-2"></i>オンラインショップ</a>
+            </nav>
         </div>
     </header>
 
@@ -96,7 +128,6 @@
                 🌱 完全制御型・無農薬水耕栽培ファーム
             </div>
             
-            <!-- 見出し行間：詰まりを解消し、自然で綺麗な間隔（mb-2 md:mb-3）に微調整 -->
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-snug md:leading-normal text-emerald-950 mb-8" data-aos="zoom-out" data-aos-duration="1200" data-aos-delay="200">
                 <span class="block mb-2 md:mb-3">365日<span class="inline-block -mr-[0.5em]">、</span>変わらない</span>
                 <span class="block"><span class="inline-block -ml-[0.2em] -mr-[0.1em]">「</span>おいしい<span class="inline-block -mr-[0.5em]">」</span>を<span class="inline-block -mr-[0.3em]">。</span></span>
@@ -120,7 +151,6 @@
     <!-- コンセプト -->
     <section id="about" class="py-28 px-6 bg-white text-center border-b border-emerald-50">
         <div class="max-w-4xl mx-auto">
-            <!-- コンセプト見出し行間：詰まりを解消し適度な間隔（mb-2 md:mb-3）に微調整 -->
             <h2 class="text-3xl md:text-5xl text-emerald-900 mb-10 tracking-widest leading-snug md:leading-normal font-bold" data-aos="fade-up">
                 <span class="block mb-2 md:mb-3">安全で、均一で、美しい<span class="inline-block -mr-[0.3em]">。</span></span>
                 <span class="block">それが私たちの届ける野菜です<span class="inline-block -mr-[0.3em]">。</span></span>
@@ -145,7 +175,7 @@
             </div>
             
             <div class="space-y-24">
-                <!-- 強み 01: clean.jpg -->
+                <!-- 強み 01 -->
                 <div class="flex flex-col md:flex-row items-center gap-10 lg:gap-20 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-emerald-100/80">
                     <div class="md:w-1/2 w-full overflow-hidden rounded-2xl shadow-md" data-aos="fade-right">
                         <img src="clean.jpg" class="w-full h-[350px] object-cover hover:scale-105 transition duration-500" alt="完全無農薬・クリーン栽培">
@@ -159,7 +189,7 @@
                     </div>
                 </div>
                 
-                <!-- 強み 02: suiko.jpg -->
+                <!-- 強み 02 -->
                 <div class="flex flex-col md:flex-row-reverse items-center gap-10 lg:gap-20 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-emerald-100/80">
                     <div class="md:w-1/2 w-full overflow-hidden rounded-2xl shadow-md" data-aos="fade-left">
                         <img src="suiko.jpg" class="w-full h-[350px] object-cover hover:scale-105 transition duration-500" alt="土を超えた「水」の力">
@@ -173,7 +203,7 @@
                     </div>
                 </div>
 
-                <!-- 強み 03: data.jpg -->
+                <!-- 強み 03 -->
                 <div class="flex flex-col md:flex-row items-center gap-10 lg:gap-20 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-emerald-100/80">
                     <div class="md:w-1/2 w-full overflow-hidden rounded-2xl shadow-md" data-aos="fade-right">
                         <img src="data.jpg" class="w-full h-[350px] object-cover hover:scale-105 transition duration-500" alt="データに基づく計画的安定出荷">
@@ -197,7 +227,6 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-16 tracking-widest text-gray-900 serif" data-aos="fade-up">主力生産品目</h2>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
-                <!-- 1. sanchu.jpg -->
                 <div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100 text-center hover-lift" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-full aspect-square bg-white rounded-full mb-6 overflow-hidden border border-emerald-200 shadow-inner">
                         <img src="sanchu.jpg" class="w-full h-full object-cover" alt="サンチュ">
@@ -206,7 +235,6 @@
                     <p class="text-xs text-emerald-700 mt-1 font-medium">無農薬・極上の柔らかさ</p>
                 </div>
 
-                <!-- 2. sunny.jpg -->
                 <div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100 text-center hover-lift" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-full aspect-square bg-white rounded-full mb-6 overflow-hidden border border-emerald-200 shadow-inner">
                         <img src="sunny.jpg" class="w-full h-full object-cover" alt="サニーレタス">
@@ -215,7 +243,6 @@
                     <p class="text-xs text-emerald-700 mt-1 font-medium">鮮やかな赤紫とシャキシャキ感</p>
                 </div>
 
-                <!-- 3. green.jpg -->
                 <div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100 text-center hover-lift" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-full aspect-square bg-white rounded-full mb-6 overflow-hidden border border-emerald-200 shadow-inner">
                         <img src="green.jpg" class="w-full h-full object-cover" alt="グリーンカール">
@@ -224,7 +251,6 @@
                     <p class="text-xs text-emerald-700 mt-1 font-medium">強いフリルと華やかな見た目</p>
                 </div>
 
-                <!-- 4. mitsuba.jpg -->
                 <div class="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100 text-center hover-lift" data-aos="fade-up" data-aos-delay="400">
                     <div class="w-full aspect-square bg-white rounded-full mb-6 overflow-hidden border border-emerald-200 shadow-inner">
                         <img src="mitsuba.jpg" class="w-full h-full object-cover" alt="三つ葉">
@@ -454,12 +480,10 @@
             </button>
         </div>
 
-        <!-- カートの中身一覧 -->
         <div id="cart-items" class="p-6 overflow-y-auto flex-1 space-y-4">
             <p id="empty-cart-msg" class="text-center text-gray-400 py-12 text-sm">カートに商品が入っていません</p>
         </div>
 
-        <!-- カート合計と注文入力へ進むボタン -->
         <div class="p-6 border-t border-gray-100 bg-gray-50">
             <div class="flex justify-between items-center mb-4 text-lg font-bold text-gray-900">
                 <span>商品小計（税込）:</span>
@@ -486,7 +510,6 @@
             </h3>
             <p class="text-xs text-gray-500 mb-6">お届け先情報を入力すると、地域別ヤマト宅急便送料（南東北発80サイズ）が自動計算されます。</p>
 
-            <!-- 配送先フォーム -->
             <form id="shipping-form" onsubmit="event.preventDefault(); proceedToPayment();" class="space-y-4 text-sm text-gray-700 mb-6">
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">お名前 <span class="text-red-500">*</span></label>
@@ -519,7 +542,6 @@
                     <input type="tel" id="cust-phone" required placeholder="090-0000-0000" class="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 focus:border-emerald-600 focus:outline-none">
                 </div>
 
-                <!-- ❄️ クール便オプション（選択可能） -->
                 <div class="pt-2">
                     <label class="flex items-center gap-2 p-3 bg-blue-50/70 border border-blue-200 rounded-xl cursor-pointer hover:bg-blue-100/50 transition">
                         <input type="checkbox" id="cool-option" onchange="calculateGrandTotal()" class="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
@@ -529,7 +551,6 @@
                     </label>
                 </div>
 
-                <!-- 請求先別指定チェックボックス -->
                 <div class="pt-2 border-t border-gray-100">
                     <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-gray-700">
                         <input type="checkbox" id="diff-billing" onchange="toggleBillingAddress()" class="w-4 h-4 text-emerald-600 rounded">
@@ -537,7 +558,6 @@
                     </label>
                 </div>
 
-                <!-- 請求先住所入力エリア（非表示） -->
                 <div id="billing-address-section" class="hidden space-y-3 pt-2 bg-gray-50 p-4 rounded-xl border border-gray-200 text-xs">
                     <h4 class="font-bold text-gray-800">請求先情報</h4>
                     <div>
@@ -549,7 +569,6 @@
                 </div>
             </form>
 
-            <!-- 料金内訳カード -->
             <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200 text-xs text-gray-700 mb-6 space-y-1.5">
                 <div class="flex justify-between">
                     <span>商品小計:</span>
@@ -565,7 +584,6 @@
                 </div>
             </div>
 
-            <!-- PayPal決済ボタンの描画エリア -->
             <div id="paypal-button-container" class="min-h-[100px]"></div>
         </div>
     </div>
@@ -582,12 +600,66 @@
         </div>
     </div>
 
+    <!-- ⚖️ 特定商取引法に基づく表記 モーダル -->
+    <div id="tokusho-modal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 md:p-8 shadow-2xl relative max-h-[85vh] overflow-y-auto">
+            <button onclick="closeTokushoModal()" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-2xl font-bold text-gray-900 mb-6 serif border-b pb-3">特定商取引法に基づく表記</h3>
+            
+            <dl class="space-y-4 text-xs md:text-sm text-gray-700 leading-relaxed">
+                <div class="border-b border-gray-100 pb-3"><dt class="font-bold text-emerald-800">販売事業者</dt><dd class="mt-1">株式会社 未来ファーム</dd></div>
+                <div class="border-b border-gray-100 pb-3"><dt class="font-bold text-emerald-800">運営責任者</dt><dd class="mt-1">〇〇 〇〇</dd></div>
+                <div class="border-b border-gray-100 pb-3"><dt class="font-bold text-emerald-800">所在地</dt><dd class="mt-1">〒980-0000 宮城県仙台市〇〇区〇〇 1-2-3</dd></div>
+                <div class="border-b border-gray-100 pb-3"><dt class="font-bold text-emerald-800">お問い合わせ先</dt><dd class="mt-1">メール: info@mirai-farm.co.jp（※お問い合わせフォームをご利用ください）</dd></div>
+                <div class="border-b border-gray-100 pb-3"><dt class="font-bold text-emerald-800">販売価格</dt><dd class="mt-1">各商品ページに表示された価格（消費税込）</dd></div>
+                <div class="border-b border-gray-100 pb-3"><dt class="font-bold text-emerald-800">商品代金以外の必要料金</dt><dd class="mt-1">地域別配送送料（ヤマト運輸80サイズ基準）、クール便指定料（+330円）</dd></div>
+                <div class="border-b border-gray-100 pb-3"><dt class="font-bold text-emerald-800">お支払い方法</dt><dd class="mt-1">クレジットカード決済、PayPay決済（PayPal経由）</dd></div>
+                <div class="border-b border-gray-100 pb-3"><dt class="font-bold text-emerald-800">商品の引き渡し時期</dt><dd class="mt-1">ご注文・決済確認後、通常1〜3営業日以内に発送いたします。</dd></div>
+                <div><dt class="font-bold text-emerald-800">返品・交換・キャンセル</dt><dd class="mt-1">生鮮食品という商品の特性上、お客様都合による返品・交換・キャンセルはお受けできません。万一、商品に傷みや不良があった場合は到着後2日以内にご連絡ください。</dd></div>
+            </dl>
+
+            <div class="mt-8 text-center">
+                <button onclick="closeTokushoModal()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-8 py-2.5 rounded-full text-xs font-bold transition">閉じる</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔒 プライバシーポリシー モーダル -->
+    <div id="privacy-modal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 md:p-8 shadow-2xl relative max-h-[85vh] overflow-y-auto">
+            <button onclick="closePrivacyModal()" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-2xl font-bold text-gray-900 mb-6 serif border-b pb-3">プライバシーポリシー</h3>
+            
+            <div class="space-y-4 text-xs md:text-sm text-gray-700 leading-relaxed">
+                <p>株式会社未来ファーム（以下「当社」）は、お客様の個人情報の重要性を認識し、適切な保護と管理を行うため、以下のプライバシーポリシーを定めます。</p>
+                <h4 class="font-bold text-emerald-800 mt-4">1. 個人情報の取得と利用目的</h4>
+                <p>当社は、商品の発送、お問い合わせへの回答、決済手続き、およびサービス向上の目的でのみ個人情報を取得・利用いたします。</p>
+                <h4 class="font-bold text-emerald-800 mt-4">2. 個人情報の第三者提供</h4>
+                <p>当社は、法令に基づく場合や配送業者・決済事業者への必要な情報提供を除き、同意を得ることなく第三者に個人情を開示・提供することはありません。</p>
+                <h4 class="font-bold text-emerald-800 mt-4">3. 個人情報の安全管理</h4>
+                <p>当社は、取得した個人情報の漏洩、紛失、改ざんを防止するため、適切なセキュリティ対策を実施します。</p>
+            </div>
+
+            <div class="mt-8 text-center">
+                <button onclick="closePrivacyModal()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-8 py-2.5 rounded-full text-xs font-bold transition">閉じる</button>
+            </div>
+        </div>
+    </div>
+
     <!-- フッター -->
-    <footer class="bg-gray-950 text-center py-10 text-gray-500 text-xs tracking-[0.2em] border-t border-gray-800">
+    <footer class="bg-gray-950 text-center py-12 text-gray-500 text-xs tracking-[0.2em] border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 mb-6 flex flex-wrap justify-center gap-6 text-gray-400">
+            <button onclick="openTokushoModal()" class="hover:text-emerald-400 transition underline underline-offset-4">特定商取引法に基づく表記</button>
+            <button onclick="openPrivacyModal()" class="hover:text-emerald-400 transition underline underline-offset-4">プライバシーポリシー</button>
+        </div>
         &copy; 2026 MIRAI FARM INC. ALL RIGHTS RESERVED.
     </footer>
 
-    <!-- アニメーション & ショッピングカート・配送計算・PayPal連携スクリプト -->
+    <!-- JSスクリプト -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         var cart = [];
@@ -616,6 +688,38 @@
             offset: 50,
             easing: 'ease-out-cubic'
         });
+
+        // 📱 スマホ用ハンバーガーメニュー開閉
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const bars = document.getElementById('menu-icon-bars');
+            const close = document.getElementById('menu-icon-close');
+            
+            const isOpen = menu.classList.contains('open');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                menu.classList.add('open');
+                bars.classList.add('hidden');
+                close.classList.remove('hidden');
+            }
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const bars = document.getElementById('menu-icon-bars');
+            const close = document.getElementById('menu-icon-close');
+            
+            menu.classList.remove('open');
+            bars.classList.remove('hidden');
+            close.classList.add('hidden');
+        }
+
+        // ⚖️ 特定商取引法＆プライバシーポリシー モーダル制御
+        function openTokushoModal() { document.getElementById('tokusho-modal').classList.remove('hidden'); }
+        function closeTokushoModal() { document.getElementById('tokusho-modal').classList.add('hidden'); }
+        function openPrivacyModal() { document.getElementById('privacy-modal').classList.remove('hidden'); }
+        function closePrivacyModal() { document.getElementById('privacy-modal').classList.add('hidden'); }
 
         // 🛒 カートトグル
         function toggleCart() {
