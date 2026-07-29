@@ -68,6 +68,11 @@
         .cart-drawer.closed {
             transform: translateX(100%);
         }
+
+        /* ✒️ 日本語プロポーショナルカーニング（約体詰め・文字間最適化） */
+        .font-palt {
+            font-feature-settings: "palt";
+        }
     </style>
 </head>
 <body class="bg-[#fafdfb]" id="top">
@@ -99,18 +104,18 @@
         </div>
     </header>
 
-    <!-- ヒーローセクション（背景をクリアにし、文字周りのみ可読性を確保） -->
+    <!-- ヒーローセクション（文字間・約体詰めを最適化したキャッチコピー） -->
     <section class="min-h-screen hero-bg relative flex items-center justify-center text-gray-800 pt-20">
         <div class="relative z-10 text-center px-4 max-w-5xl py-12 hero-text-container" data-aos="fade">
             <div class="inline-block bg-emerald-100/90 backdrop-blur-sm text-emerald-900 border border-emerald-200 text-xs md:text-sm px-4 py-1.5 rounded-full mb-6 font-semibold tracking-widest shadow-sm" data-aos="fade-down" data-aos-duration="1000">
                 🌱 完全制御型・無農薬水耕栽培ファーム
             </div>
             
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-wider text-emerald-950 mb-8" data-aos="zoom-out" data-aos-duration="1200" data-aos-delay="200">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-emerald-950 mb-8 font-palt" data-aos="zoom-out" data-aos-duration="1200" data-aos-delay="200">
                 <span class="inline-block">365日、</span><span class="inline-block">変わらない</span><br class="hidden sm:inline"><span class="inline-block">「おいしい」を。</span>
             </h1>
 
-            <p class="text-gray-700 text-base md:text-lg max-w-3xl mx-auto mb-10 font-normal leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+            <p class="text-gray-700 text-base md:text-lg max-w-3xl mx-auto mb-10 font-normal leading-relaxed font-palt" data-aos="fade-up" data-aos-delay="300">
                 <span class="inline-block">仙台の自社プラントで育つ、洗わずにそのまま食べられる極上サンチュ・レタス。</span><br class="hidden md:inline">
                 <span class="inline-block">業務用の大口注文からオンライン直売まで全国へ発送いたします。</span>
             </p>
