@@ -9,16 +9,16 @@
     <meta name="description" content="株式会社未来ファームは、宮城県仙台市で完全制御型水耕栽培による無農薬サンチュ・レタスを生産・販売する企業です。新鮮・安心な無農薬野菜をオンラインで直接ご購入いただけます。">
     <meta name="keywords" content="未来ファーム,サンチュ,水耕栽培,無農薬,仙台,業務用野菜,バイヤー,通販,直売,オンラインショップ">
 
-    <!-- 📱 PWA / アプリ化対応 (水滴＆新芽アイコン：コード埋め込み完了) -->
+    <!-- 📱 PWA / スマホホーム画面＆タブ用アイコン（FontAwesome由来の水滴アイコンへ差し替え） -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#15803d">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="未来ファーム">
     
-    <!-- 💧 水滴と芽のアイコン（最初の成功した葉っぱと全く同じ指定方式） -->
-    <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='100' fill='%2315803d'/><path fill='%23ffffff' d='M256 64 C256 64 128 240 128 336 C128 406.7 185.3 464 256 464 C326.7 464 384 406.7 384 336 C384 240 256 64 256 64 Z M256 416 C211.8 416 176 380.2 176 336 C176 280 236 170 256 140 C276 170 336 280 336 336 C336 380.2 300.2 416 256 416 Z'/></svg>">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='100' fill='%2315803d'/><path fill='%23ffffff' d='M256 64 C256 64 128 240 128 336 C128 406.7 185.3 464 256 464 C326.7 464 384 406.7 384 336 C384 240 256 64 256 64 Z M256 416 C211.8 416 176 380.2 176 336 C176 280 236 170 256 140 C276 170 336 280 336 336 C336 380.2 300.2 416 256 416 Z'/></svg>">
+    <!-- 💧 FontAwesomeのfa-droplet(水滴)ベースのアイコンデータ -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'><rect width='384' height='512' rx='50' fill='%2315803d'/><path fill='%23ffffff' d='M192 512C86 512 0 426 0 320C0 228.8 130.2 57.7 166.6 11.7C172.6 4.2 181.8 0 192 0C202.2 0 211.4 4.2 217.4 11.7C253.8 57.7 384 228.8 384 320C384 426 298 512 192 512Z'/></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'><rect width='384' height='512' rx='50' fill='%2315803d'/><path fill='%23ffffff' d='M192 512C86 512 0 426 0 320C0 228.8 130.2 57.7 166.6 11.7C172.6 4.2 181.8 0 192 0C202.2 0 211.4 4.2 217.4 11.7C253.8 57.7 384 228.8 384 320C384 426 298 512 192 512Z'/></svg>">
 
     <!-- Tailwind CSS (デザイン制御) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -89,7 +89,7 @@
     <header class="fixed w-full z-40 bg-white/95 backdrop-blur-md border-b border-emerald-100/60 py-4 transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <a href="#top" class="text-xl md:text-2xl font-bold tracking-widest serif text-emerald-800 hover:opacity-80 transition duration-200 flex items-center gap-2">
-                <i class="fa-solid fa-leaf text-emerald-600 text-lg"></i>
+                <i class="fa-solid fa-droplet text-emerald-600 text-lg"></i>
                 MIRAI FARM
             </a>
             
